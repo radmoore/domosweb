@@ -15,14 +15,14 @@ class UsersController < ApplicationController
       end
   end
 
-	def download
+  def download
     @user = User.find_by_dtoken(params[:dtoken])
     if @user.nil?
       redirect_to "http://www.angstd.uni-muenster.de"
-		end
-	end
+    end
+  end
 
-	def resend_token
+  def resend_token
     @user = User.find_by_email(params[:email])
     if @user.nil?
       flash[:error] = "We were unable to find a user with #{params[:email]}"
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
       UserMailer.send_link(@user).deliver
       flash[:notice] = "We have re-sent a download link to #{@user.email}"
     end
-	end
+  end
 
 
   # ensure that token is in db
