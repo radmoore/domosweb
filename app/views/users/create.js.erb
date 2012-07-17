@@ -1,0 +1,7 @@
+<% if @user.errors.any? %>
+  $('#notification_field').html('<%= escape_javascript(render 'shared/error_messages', :target => @user) %>');
+<% else %> 
+  $('#notification_field').html('<%= escape_javascript(render 'shared/flash_message', :target => @user) %>');
+  $('#new_user')[0].reset();
+  $('#notification_field').delay(2000).fadeOut('slow')
+<% end %> 

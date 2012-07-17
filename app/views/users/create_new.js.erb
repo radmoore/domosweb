@@ -1,0 +1,6 @@
+# TODO: this does not work. Complete, or change back to prototype / rjs
+<% if @user.errors.any? -%>
+page.replace_html('ind', <%=  error_messages_for(@user)%>)
+<% else %>
+page.replace_html('ind', :partial => "success")
+<% end %>

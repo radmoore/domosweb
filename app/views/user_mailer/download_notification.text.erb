@@ -1,0 +1,10 @@
+
+AnNGSTD downloaded notification
+------------------------------------
+Name: <%= @user.name %>
+Institute: <% if @user.institute.nil? %> NA <% else %> <%= @user.institute %> <%  end %>
+Website: <% if @user.website == "http://" %> NA <% else %> <%= @user.website %> <%  end %>
+Email: <%= @user.email  %>
+Download at: <%= @datestamp.to_s %>
+------------------------------------
+

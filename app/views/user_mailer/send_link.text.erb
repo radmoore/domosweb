@@ -1,0 +1,30 @@
+Hello <%= @user.name %>,
+
+Thank you for your interest in DoMosaics. You can now proceed to the download by
+following this link:
+
+<%= download_url(:dtoken => @user.dtoken) %>
+
+
+This link will only be valid for some time, after which you must sign-up again.
+
+If you should have any problems obtaining / using DoMosaics, or comments of any
+nature, please drop us a note to
+
+<%= TEAM_EMAIL %>
+
+Have fun!
+
+
+
+---
+Evolutionary Bioinformatics Group
+Institute for Evolution and Biodiversity
+Hueferstrasse 01
+48149 Muenster
+Germany
+
+DoMosaics web: http://www.domosaics.uni-muenster.de
+IEB web: http://ieb.uni-muenster.de/bioinf
+Tel. +49 (251) 83-21634
+Fax. +49 (251) 83-24668

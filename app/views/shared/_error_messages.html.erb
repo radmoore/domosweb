@@ -1,0 +1,11 @@
+<% if target.errors.any? %>
+<div class="alert alert-error" style="margin-top:10px">
+  <a class="close" data-dismiss="alert" href="#">x</a>
+  <strong><%= pluralize(target.errors.count, "error") %> in our way:</strong>
+  <ul>
+  <% target.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>

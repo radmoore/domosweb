@@ -1,0 +1,330 @@
+<a name='top'></a>
+<div style="margin-top: 100px;">
+<div class="container">
+<div class='row'>
+  <div class='span9'>
+  <header class='jubotron subhead'>
+    <h1>DoMosaics</h1>
+    <p class='lead'>A software suite for domain-wise analysis of protein familes</p>
+      <ul class='nav nav-pills'>
+        <li class='active'><a href='about'>About</a></li>
+        <li class=''><a href='#requirements'>Requirements</a></li>
+        <li class=''><a href='#download'>Download</a></li>
+        <li class=''><a href='#usage'>Using</a></li>
+        <li class=''><a href='#changelog'>Changelog</a></li>
+        <li class=''><a href='#faq'>FAQ</a></li>
+        <li class=''><a href='#referencing'>Referencing</a></li>
+        <li class=''><a href='#contact'>Contact</a></li>
+      </ul>
+    </header>
+    </div>
+    <div class='span3'>
+      <img src='/assets/domos.png'>
+    </div>
+  </div>
+  <section id='about'>
+  <a name="about"></a>
+  <h3>About</h3>
+  <hr />
+  <div class='row'>
+  <div class='span12'>
+  <div style='text-align:justify;'>DoMosaics shows you a tree with corresponding domain arrangements of the
+  proteins at the same time.  If you want to know where your domain was lost,
+  whether a group of proteins differs in its domain arrangements, or what are
+  the characteristic domains for a phylogenetic group, DoMosaics is for you.
+  DoMosaics lets you also examine the domain annotations to see whether the
+  domains have been correctly identified. You can create dotplots, run a
+  context-dependent similarity analysis and more.
+  Furthermore, you can also run some general phylogenetic profiling, create
+  domain network graphs, find domain insertion/deletion events and, last but
+  not least, simply visualize and manipulate phylogenetic trees.
+  All output can be saved as PDF or as SVG (which can be viewed
+  in Firefox or edited using e.g. Adobe Illustrator or <a href="http://www.inkscape.org">Inkscape</a>)
+  as well as in a number of common bitmap formats.</div>
+  </div>
+  <div class='span8'>
+    <dl class="dl-horizontal">
+    <dt>Graphics</dt>
+    <dd>create highly customizable, publication ready graphics from annotation data</dd>
+    <dt>Annoatate</dt>
+    <dd>easy-to-use batch access to InterPro, wrapper for local HMMER installation</dd>
+    <dt>Connect data</dt>
+    <dd>visualize domain architectures along phylogenies</dd>
+    <dt>Analyse</dt>
+    <dd>investigate domain gain and loss events along branches, collapse similar architectures, annotate domains with context, perform domain dotplots, 
+    access webservices @EBI, ...</dd>
+    <dt>Manage</dt>
+    <dd>manage multiple projects in paralell, merge projects, export selections to new projects, seperate datatypes in different views, ...</dd>
+  </div>
+  </div>
+  </section>
+  <section id='screenshots'>
+  <ul class="thumbnails">
+        <li class="span4">
+          <div class='thumbnail'>
+            <a href="/assets/domos-screen1.png"><img src="/assets/domos-screen1_thumb.png" alt=""></a>
+            <div class='caption'>
+            <h5>Arrangement comparison</h5>
+            <p>Annotate input sequences using InterPro and tailor the architecture appearance to your needs</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="span4">
+          <div class='thumbnail'>
+            <img src="/assets/domos-screen1_thumb.png" alt="">
+            <div class='caption'>
+            <h5>Arrangement comparison<h5>
+            <p>Annotate input sequences using InterPro</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="span4">
+          <div class='thumbnail'>
+            <img src="/assets/domos-screen1_thumb.png" alt="">
+            <div class='caption'>
+            <h5>Arrangement comparison<h5>
+            <p>Annotate input sequences using InterPro</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+  </section>
+
+
+  <a name="requirements"></a>
+  <section='requirements'>
+  <h3>Requirements</h3>
+  <hr />
+  <div class='row'>
+    <div class='span6'>
+      <p style='text-align:justify;'>Any machine running <a href="http://java.com/en">Sun Java 6</a> should be able to run DoMosaics. RAM requirements vary depending on data set size, but we recommend 512 MB RAM.
+      For running HMMSCAN, a dual core (or better) is recommended. If you should encounter any issues, please let us know. You can download
+      the jar below (for which a sign-up is currently required)</p>
+    </div>
+    <div class='span6'>
+      <div class="alert alert-info">
+      <b>Software links</b>:
+      <ul>
+        <li><a href="http://java.com/en">http://java.com</a></li>
+        <li><a href="http://hmmer.janelia.org">http://hmmer.janelia.org</a></li>
+        <li><a href="http://www.ebi.ac.uk/interpro/">http://www.ebi.ac.uk/interpro/</a></li>
+      </ul>
+      <b>Domain models</b>:
+      <ul>
+        <li><a href="http://pfam.sanger.ac.uk/">http://pfam.sanger.ac.uk/</a></li>
+        <li><a href="http://smart.embl-heidelberg.de/">http://smart.embl-heidelberg.de/</a></li>
+        <li><a href="http://supfam.cs.bris.ac.uk/SUPERFAMILY/">http://supfam.cs.bris.ac.uk/SUPERFAMILY/</a></li>
+      </ul>
+      </div>
+    </div>
+  </div>
+  <p style='float:right;'><a href='#top'>[ top ]</a></p>
+  <br />
+  <br />
+  </section>
+
+  <a name="download"></a>
+  <section id="download">
+  <h3>Download</h3>
+  <hr />
+  <div class='row'>
+    <div class='span8'>
+      <div id='notification_field'></div>
+      <div class="tabbable">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab1" data-toggle="tab">Sign up</a></li>
+          <li><a href="#tab2" data-toggle="tab">Resend download key</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab1">
+            <%= render :partial => 'signup_form' %>
+          </div>
+          <div class="tab-pane" id="tab2">
+            <%= form_tag 'users/resend_token', :class=>'well form-search', :remote => true, :id => 'resendform' do %>
+              <%= text_field_tag :email, nil, :class=>"input-xlarge", :required => true, :type => 'email', :placeholder =>'Your email' %>
+              <%= submit_tag 'resend email', :class => "btn btn-primary" %>
+              <span class="help-block">Email you used for signing-up</span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='span4' style='padding-top:50px;'>
+      <p style='text-align:justify;'><b>Note</b>: As DoMosaics is still work-in-progress, we currently require you to sign-up  
+        while we work on the final release (which makes you one of our testers). You can sign up for free and obtain a .jar
+        file within minutes after sign-up. After sign-up, you will receive an email, with a link to your download.</p> 
+        <p style='text-align:justify;'><span class="label label-important">Important</span> We will use your email to send you a <b>download link</b>
+        and to <b>notify you</b> when we are done so that you can get the latest version.</p>
+    </div>
+  </div>
+  <p style='float:right;'><a href='#top'>[ top ]</a></p>
+  <br />
+  <br />
+  </section>
+
+  <a name='usage'></a>
+  <section='usage'>
+  <h3>Using DoMosaics</h3>
+  <div style='text-align: justify;'>
+  <hr />
+  <p style='text-align:justify;'>As mentioned below, DoMosaics is work in progress. We have not yet finished with the application, 
+  and we have also not yet completed a manual. In a nutshell, on *nix systems, do</p>
+  <pre>[12:59] radmoore@joshua ~/Desktop $ java -jar domosaics.jar</pre>
+  <p style='text-align:justify;'>to start DoMosaics. On windows, a double click will presumably do the job. Most users will want to start with a set of fasta sequences, 
+  run the annotator (against <%= link_to "InterPro", "http://www.ebi.ac.uk/interpro/" %>) to annotate domains, and then associate the resulting domain architectures 
+  to leafs of a tree. A crude tree can be calculated using DoMosaics, but we recommend using proper software for that 
+  (eg. <%= link_to "RaxML", "http://icwww.epfl.ch/~stamatak/index-Dateien/Page443.htm" %> or <%= link_to 'FastTree', "http://www.microbesonline.org/fasttree/" %> ).
+  You will probably get the hang of things by messing with the menus and wizards. We shall update this page with a manual once were ready.</p>
+  </div>
+  <p style='float:right;'><a href='#top'>[ top ]</a></p>
+  <br />
+  <br />
+  </section>
+
+  <a name='changelog'></a>
+  <section='changelog'>
+  <h3>Changelog</h3>
+  <hr />
+  <div style='text-align: justify;'>
+  We have have been working hard at cleaning up DoMosaics for final release. We have fixed a number of annoying bugs and have
+  added a couple of new features (and bugs).
+  <br />
+  <br />
+  <ul>
+    <li><span class="label label-info">REVISION 1.78</span> (current beta release)</li> 
+    Changelog:
+      <ul>
+        <li>Complete overhaul of workspace management</li>
+        <li>Updated iprscan to reflect changes to EBI interproscan API</li>
+        <li>Angstd now supports all InterProScan methods (Superfam, Pfam, SMART, Panther, ...)</li>
+        <li>Updated local HMMSCAN and HMMPRESS interfaces</li>
+        <li>Incorporated GO mappings</li>
+        <li>Included CODD procedure to allow for context dependent annotation 
+            (see also <%= link_to "PMID:19786484", "http://www.ncbi.nlm.nih.gov/pubmed/19786484" %>)
+        </li>
+        <li>Cleaned up overlap resolution procedure (mostly GUI related)</li>
+        <li>Various updates to the user interface</li>
+        <li>...</li>
+      </ul>
+     <i class="icon-warning-sign"></i> Known issues:
+     <ul>
+       <li>Tree creation: there are issues when creating a tree using ClustalW (@EBI)</li> 
+       <li>Job management: submitted jobs do not cancel properly upon abort (in some special cases)</li> 
+     </ul>
+     <br />
+     <li><span class='label label-info'>REVISION 1.68</span> (first public release)</li> 
+     <i class="icon-warning-sign"></i> Known issues:
+     <ul>
+       <li>Bug in SwingWorker for Java SDK versions 1.6.0_18 - 1.6.0_20; InterProScan does not work properly. We recommend updating to
+       the newest Java version.</li> 
+     </ul>
+   </div>
+  <p style='float:right;'><a href='#top'>[ top ]</a></p>
+  <br />
+  <br />
+  </section>
+  <br />
+  <a name='faq'></a>
+  <section id='faq'>
+  <h3>Frequently asked questions</h3>
+  <hr />
+  <ul>
+
+    <li>
+    <em>Wait a minute... this site used to host a program called DoMosaics</em>
+    <p style='text-align:justify'>No worries - DoMosaics is identical to AnGSTD. AnGSTD was more of a working title, and as we are approaching
+    the first real release, we reconsidered naming options. There is no need to be concerned about webcites pointing to angstd.uni-muenster.de -
+    they will be redirected to domosaics.uni-muenster.de</p>
+    </li>
+
+    <li>
+    <em>I am using DoMosaics under Windows...</em>
+    <p style='text-align:justify;'>Most things should work under windows, but there are still a couple of issues. We have not yet ensured tested
+    the Windows port of HMMER, but that is planned for the nearest future. We hope to have full windows support in the next release. For now
+    if you are having problems under windows, <a href="#contact">contact</a> us with some details and will get back to you.</p>
+    </li>
+
+    <li>
+    <em>When I start DoMosaics I get "The default workspace is currently in use ...</em>
+    <p style='text-align:justify;'>This can happen when DoMosaics crashes violently, and can not clean up after itself. Navigate to the workspace folder you created
+    when you started DoMosaics the first time (default is USER_HOME/.angstd-workspace) and remove the .lock file.</p>
+    </li>
+    <li>
+    <em>How do I get started? Is there a manual?</em>
+    <p style='text-align:justify;'>Unfortunately, we do not yet have a manual. In the current release, we added two example data sets for users to use a bit prior
+    'production' use. We suggest starting with one of these data sets (which can be found under Help). In general, it is probably easiest to
+    start with a set of protein sequences (fasta format), and load them into DoMosaics (File -> New -> Project with data -> create a project -> select fasta file)
+    Once the view is loaded, run a search for domains using InterProScan (Annotate -> InterPro) to create a domain view.</p>
+    </li>
+    
+    <li>
+    <em>I am getting a java error: </em>
+    <pre>Exception in thread "main" java.lang.OutOfMemoryError: Java heap space</pre>
+    <p style='text-align:justify;'>This indicates that the <%= link_to 'Java virtual machine', "http://en.wikipedia.org/wiki/Java_virtual_machine" %>
+    has run out of memory. Try increasing the amount of memory allocated to the VM. To do so, on *unix systems, do</p>
+    <pre>
+    [13:04] radmoore@joshua ~/Desktop $ java -Xms512m -Xmx1024m -jar domosaics.jar</pre>
+    <p>to increase the initial and the max. size of your VMs heap space. Windows users must
+    <%= link_to 'google', "http://www.google.com/search?hl=en&q=windows+increase+heap+size+JVM&aq=f&aqi=&aql=&oq=&gs_rfai="%></p>
+    </li>
+
+    <li>
+    <em>Apparently, my question is not frequently asked...</em>
+    <p>Understandable. Don't hesitate, <a href="contact">contact</a> us. We love the feedback...</p>
+    </li>
+
+  </ul>
+  <p style='float:right;'><a href='#top'>[ top ]</a></p>
+  <br />
+  <br />
+  </section>
+  <br />
+
+  <section id='referencing'>
+  <h3>How do I reference DoMosaics in my work?</h3>
+  <hr />
+  <p style='text-align:justify;'>
+  We are still finishing off DoMosaics. Therefore, there is no publication yet. However, we have used DoMosaics in a number of publications, and have
+  handed some copies to a couple of selected users who successfully used DoMosaics for visualization and analysis of domain data in their publications
+  (for example, see <%= link_to "PMID:20075255", "http://www.ncbi.nlm.nih.gov/pubmed/20075255" %> 
+  and <%= link_to "PMID:2093230", "http://www.ncbi.nlm.nih.gov/pubmed/20932300" %>).</p>
+  <p style='text-align:justify;'> <b>Long story short</b>: Please consult this site before publishing. For the time being, if your journal
+  supports URL citations, please cite</p>
+  <p style='text-align:center;'><%= link_to "http://www.domosaics.uni-muenster.de","http://www.domsaics.uni-muenster.de" %></p>
+  <p>Lastly, we would appreciate it if you could inform us <em>prior</em> to submission that you have used DoMosaics (beta) in your work.</p>
+  <p style='float:right;'><a href='#top'>[ top ]</a></p>
+  <br />
+  <br />
+  </section>
+  <br />
+
+
+
+  <a name='contact'></a>
+  <section id='contact'>
+  <h3>Contact</h3>
+  <hr />
+  <p style='text-align:justify;'>DoMosaics is currently being developed by <a href="http://ieb.uni-muenster.de/bioinf/people/moore">Andrew Moore</a> and 
+  <a href='http://ieb.uni-muenster.de/bioinf/people/terrapon'>Nicolas Terrapon</a> (CODD intergration). Lots of the inital development was done by Andreas Held (a Perl-TK version was developed by 
+  January Weiner).</p>
+  <address>
+    <b>Dr. Andrew D. Moore</b> <br />
+    Evolutionary Bioinformatics Group<br />
+    Institute for Evolution and Biodiversity <br />
+    Huefferstr. 1, 48147 Muenster, Germany<br />
+    <a href='http://ieb.uni-muenster.de/bioinf'>http://ieb.uni-muenster.de/bioinf</a><br />
+    radmoore@uni-muenster.de<br />
+  </address>
+  </section>
+
+  <p style='float:right;'><a href='#top'>[ top ]</a></p>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+</div>
+</div>
+

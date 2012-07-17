@@ -1,0 +1,50 @@
+<div style="margin-top: 100px;">
+<div class="container">
+<header class='jubotron subhead'>
+<h1>DoMosaics</h1>
+<p class='lead'>A software suite for domain-wise analysis of protein familes</p>
+</header>
+<hr />
+<div class='row'>
+  <div class='span8'>
+  <p style='text-align:justify;>'>
+  Hi <b><%= @user.name %></b>, <br />
+  before you proceed to download, please take note of the conditions stated below. If you should have any questions, comments or bug reports, please send a mail to
+  <a href="mailto:domosaics@uni-muenster.de">domosaics@uni-muenster.de</a></p>
+  Thanks, and enjoy.
+  </div>
+  <div class='span2 offset2'>
+    <img src='/assets/download_arrow.png'>
+  </div>
+</div>
+<b>Please Note</b>: 
+<hr />
+<ul>
+<li>AnGSTD is still under development. Keep that in mind when you use AnGSTD for your research</li>
+<br />
+<li>We will contact you <b>exactly one more time</b> to notify you that the development phase is complete, and to invite you to download the released version</li>
+<br />
+<li>We do intend to release AnGSTD as open source, but until the final release please do not <b>copy/use any of the code</b> and <b>do not redistribute AnGSTD</b></li>
+<br />
+<li>By clicking on the download link below you agree with the conditions stated above, and with the following disclaimer:</li>
+<br />
+<div id='disclaim' style='text-align:justify;'>
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS 
+OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY 
+AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER 
+OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, 
+OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR 
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON 
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, 
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</div>
+</ul>
+<hr />
+<br />
+<div style='text-align:center;'>
+  <%= link_to 'Agree & Download', download_file_url(:dtoken => @user.dtoken), :class =>'btn btn-large btn-primary'%>
+  <%= link_to 'Cancel', 'http://www.domosaics.uni-muenster.de', :class =>'btn btn-large btn-danger'%>
+</div>
+</div>
+</div>

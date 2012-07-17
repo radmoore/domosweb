@@ -1,0 +1,7 @@
+<% if @user.errors.any? %>
+  $('#notification_field').html("<div class='alert alert-error' style='margin-top:10px'><a class='close' data-dismiss='alert' href='#'>x</a><b>Sorry</b> - cannot find a user with that email</div>");
+<% else %> 
+  $('#notification_field').html('<%= escape_javascript(render 'shared/flash_message', :target => @user) %>');
+  $('#resendform')[0].reset();
+  $('#notification_field').delay(2000).fadeOut('slow')
+<% end %> 
