@@ -10,16 +10,13 @@ class UsersController < ApplicationController
         @user.attach_download_token
         UserMailer.send_link(@user).deliver
         # EMAIL TO ANGSDT TEAM:
-        # UserMailer.download_request_notification(@user).deliver
-        flash[:notice] = "We have sent a download link to #{@user.email}"
+        UserMailer.download_request_notification(@user).deliver
+        flash[:notice] = "We have sent a download link to <b>#{@user.email}</b>"
       end
   end
 
   def download
     @user = User.find_by_dtoken(params[:dtoken])
-    if @user.nil?
-      redirect_to "http://www.angstd.uni-muenster.de"
-    end
   end
 
   def resend_token
@@ -41,7 +38,7 @@ class UsersController < ApplicationController
   def download_file
     @user = User.find_by_dtoken(params[:dtoken])
     if @user.nil?
-      render :action => :index
+      redirect_to :action => download
     else
       download_loc = "#{DOWNLOAD_LOC}/#{CURRENT_JAR}"
       send_file("#{download_loc}", :filename => 'DoMosaics.jar')
@@ -49,6 +46,9 @@ class UsersController < ApplicationController
       UserMailer.download_notification(@user).deliver
       #render :text => "You are in the download area... !"
     end
+  end
+
+  def thanks
   end
 
 

@@ -145,7 +145,7 @@
           <div class="tab-pane" id="tab2">
             <%= form_tag 'users/resend_token', :class=>'well form-search', :remote => true, :id => 'resendform' do %>
               <%= text_field_tag :email, nil, :class=>"input-xlarge", :required => true, :type => 'email', :placeholder =>'Your email' %>
-              <%= submit_tag 'resend email', :class => "btn btn-primary" %>
+              <%= submit_tag 'resend email', :class => "btn btn-primary", :disable_with => 'Sending...' %>
               <span class="help-block">Email you used for signing-up</span>
             <% end %>
           </div>
