@@ -44,7 +44,7 @@ class UsersController < ApplicationController
       render :action => :index
     else
       download_loc = "#{DOWNLOAD_LOC}/#{CURRENT_JAR}"
-      send_file("#{download_loc}", :filename => 'angstd.jar')
+      send_file("#{download_loc}", :filename => 'DoMosaics.jar')
       # EMAIL TO ANGSDT TEAM:
       UserMailer.download_notification(@user).deliver
       #render :text => "You are in the download area... !"
