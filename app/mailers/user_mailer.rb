@@ -4,19 +4,19 @@ class UserMailer < ActionMailer::Base
 
   def send_link(user)
     @user = user
-    mail(:to=>user.email, :subject => "Angstd Download Link")
+    mail(:to=>user.email, :subject => "DoMosaics Download Link")
   end
 
   def download_request_notification(user)
     @user = user
     @datestamp = Time.now
-    mail(:to => TEAM_EMAIL, :subject => "AnGSTD download request")
+    mail(:to => TEAM_EMAIL, :subject => "DoMosaics download request")
   end
   
   def download_notification(user)
     @user = user
     @datestamp = Time.now
-    mail(:to =>TEAM_EMAIL, :subject => "AnNGSTD download notification")
+    mail(:to =>TEAM_EMAIL, :subject => "DoMosaics download notification")
   end
 
 
