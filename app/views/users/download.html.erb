@@ -6,6 +6,11 @@
 </header>
 <hr />
 <div class='row'>
+  <% if @user.nil? %>
+    <div class='alert alert-error' style='margin-top:10px; text-align:center;'>
+      <b>Sorry</b> - unable to find download token. <a href="/#download">Sign-up again or have download token resent</a>
+    </div>
+  <% else %>
   <div class='span8'>
   <p style='text-align:justify;>'>
   Hi <b><%= @user.name %></b>, <br />
@@ -42,9 +47,12 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 </ul>
 <hr />
 <br />
+<div id='notifcation_field'></div>
 <div style='text-align:center;'>
   <%= link_to 'Agree & Download', download_file_url(:dtoken => @user.dtoken), :class =>'btn btn-large btn-primary'%>
   <%= link_to 'Cancel', 'http://www.domosaics.uni-muenster.de', :class =>'btn btn-large btn-danger'%>
 </div>
+<% end %>
 </div>
 </div>
+

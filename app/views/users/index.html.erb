@@ -46,7 +46,7 @@
     <dl class="dl-horizontal">
     <dt>Graphics</dt>
     <dd>create highly customizable, publication ready graphics from annotation data</dd>
-    <dt>Annoatate</dt>
+    <dt>Annotate</dt>
     <dd>easy-to-use batch access to InterPro, wrapper for local HMMER installation</dd>
     <dt>Connect data</dt>
     <dd>visualize domain architectures along phylogenies</dd>
@@ -54,7 +54,7 @@
     <dd>investigate domain gain and loss events along branches, collapse similar architectures, annotate domains with context, perform domain dotplots, 
     access webservices @EBI, ...</dd>
     <dt>Manage</dt>
-    <dd>manage multiple projects in paralell, merge projects, export selections to new projects, seperate datatypes in different views, ...</dd>
+    <dd>manage multiple projects in parallel, merge projects, export selections to new projects, separate data types in different views, ...</dd>
   </div>
   </div>
   </section>
@@ -145,7 +145,7 @@
           <div class="tab-pane" id="tab2">
             <%= form_tag 'users/resend_token', :class=>'well form-search', :remote => true, :id => 'resendform' do %>
               <%= text_field_tag :email, nil, :class=>"input-xlarge", :required => true, :type => 'email', :placeholder =>'Your email' %>
-              <%= submit_tag 'resend email', :class => "btn btn-primary" %>
+              <%= submit_tag 'resend email', :class => "btn btn-primary", :disable_with => 'Sending...' %>
               <span class="help-block">Email you used for signing-up</span>
             <% end %>
           </div>
