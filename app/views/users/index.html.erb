@@ -194,8 +194,19 @@
   <br />
   <br />
   <ul>
-    <li><span class="label label-info">REVISION 1.78</span> (current beta release)</li> 
-    Changelog:
+    <span class="label label-info">REVISION 1.79</span> (current release candidate) 
+    <ul>
+      <li>Lots of bugfixes</li>
+      <li>Cleaned up UI and wizards</li>
+    </ul>
+      <i class="icon-warning-sign"></i> Known issues:
+      <ul>
+        <li>the netbeans wizard API used in all DoMosaics wizards does not work properly with OpenJDK 1.6.0 (java-1.6.0-openjdk-amd64), which
+        leads to freezes in all wizards (e.g. when creating a workspace). We do not know the reason for this, but an upgrade to 1.7
+        (<a href="http://openjdk.java.net/install/">java-1.7.0-openjdk-amd64</a>) fixes the issue.</li>
+      </ul>
+     <br />
+    <span class="label label-info">REVISION 1.78</span> (current beta release) 
       <ul>
         <li>Complete overhaul of workspace management</li>
         <li>Updated iprscan to reflect changes to EBI interproscan API</li>
@@ -215,7 +226,7 @@
        <li>Job management: submitted jobs do not cancel properly upon abort (in some special cases)</li> 
      </ul>
      <br />
-     <li><span class='label label-info'>REVISION 1.68</span> (first public release)</li> 
+     <span class='label label-info'>REVISION 1.68</span> (first public release) <br />
      <i class="icon-warning-sign"></i> Known issues:
      <ul>
        <li>Bug in SwingWorker for Java SDK versions 1.6.0_18 - 1.6.0_20; InterProScan does not work properly. We recommend updating to
