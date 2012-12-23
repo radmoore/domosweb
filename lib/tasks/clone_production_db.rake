@@ -1,4 +1,4 @@
-namespace :db do
+namespace :dbops do
   # desc "clones the production database into the local development"
   task :clone do
     STDERR.print "Getting production database... "

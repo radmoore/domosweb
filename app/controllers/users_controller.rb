@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def download
     @user = User.find_by_dtoken(params[:dtoken])
+    @os = get_client_os()
   end
 
   def resend_token
@@ -37,6 +38,7 @@ class UsersController < ApplicationController
   # if not in db, redirect to index
   def download_file
     @user = User.find_by_dtoken(params[:dtoken])
+    @os = params[:os]
     if @user.nil?
       redirect_to :action => download
     else
@@ -51,5 +53,19 @@ class UsersController < ApplicationController
   def thanks
   end
 
+
+  private
+
+  def get_client_os
+    if request.env['HTTP_USER_AGENT'].downcase.match(/mac/i)
+      return 'iOS'
+    elsif request.env['HTTP_USER_AGENT'].downcase.match(/windows/i)
+      return 'Windows'
+    elsif request.env['HTTP_USER_AGENT'].downcase.match(/linux/i)
+      return 'Linux'
+    else  
+      return 'unknown'
+    end
+  end
 
 end

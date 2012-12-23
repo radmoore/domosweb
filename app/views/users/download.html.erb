@@ -46,13 +46,26 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 </div>
 </ul>
 <hr />
-<br />
-<div id='notifcation_field'></div>
 <div style='text-align:center;'>
-  <%= link_to 'Agree & Download', download_file_url(:dtoken => @user.dtoken), :class =>'btn btn-large btn-primary'%>
-  <%= link_to 'Cancel', 'http://www.domosaics.uni-muenster.de', :class =>'btn btn-large btn-danger'%>
-</div>
+<a class ="btn btn-large btn-primary" href="<%= download_file_url(:dtoken => @user.dtoken, :os => @os) %>"><i class="icon-arrow-down"></i> Download </a> 
+<%= link_to 'Cancel', 'http://www.domosaics.uni-muenster.de', :class =>'btn btn-large btn-danger'%>
+<% if @os != 'unknown' %>
+  <p>Suggested installer: <b><%= @os %></b></p>
+<% else %>
+  <p>There is no installer for your platform. You will receive the java archive.</p>
 <% end %>
+Download a different installer: 
+  |<% %w{Windows Linux iOS}.each do |os|%>
+    <% next if os == @os %>
+    <%= link_to os, download_file_url(:dtoken => @user.dtoken, :os => os) %> | 
+  <% end %>
+</div>
+<br />
+<% end %>
+<br />
+<br />
+<br />
+<br />
 </div>
 </div>
 
