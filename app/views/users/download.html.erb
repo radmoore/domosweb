@@ -1,10 +1,14 @@
-<div style="margin-top: 100px;">
-<div class="container">
-<header class='jubotron subhead'>
-<h1>DoMosaics</h1>
-<p class='lead'>A software suite for domain-wise analysis of protein familes</p>
-</header>
-<hr />
+<div style="margin-top: 20px;">
+  <div class="container">
+    <div class='row'>
+      <div class='span12'>
+        <%= link_to (image_tag '/assets/domosaics_banner.png', :alt=>'DoMosaics'), 'http://www.domosaics.uni-muenster.de' %>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+
 <div class='row'>
   <% if @user.nil? %>
     <div class='alert alert-error' style='margin-top:10px; text-align:center;'>
