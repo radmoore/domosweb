@@ -42,8 +42,10 @@ class UsersController < ApplicationController
     if @user.nil?
       redirect_to :action => download
     else
-      download_loc = "#{DOWNLOAD_LOC}/#{CURRENT_JAR}"
-      send_file("#{download_loc}", :filename => 'DoMosaics.jar')
+      download_file = "#{BINARIES[@os]}"
+      download_loc = "#{DOWNLOAD_LOC}/#{download_file}"
+      download_loc = "domosaics-rv#{REVISION}.jar" if @os == 'unknown'
+      send_file("#{download_loc}", :filename => "#{BINARIES[@os]}")
       # EMAIL TO ANGSDT TEAM:
       UserMailer.download_notification(@user).deliver
       #render :text => "You are in the download area... !"
