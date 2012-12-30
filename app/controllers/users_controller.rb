@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     else
       download_file = "#{BINARIES[@os]}"
       download_loc = "#{DOWNLOAD_LOC}/#{download_file}"
-      download_loc = "domosaics.jar" if @os == 'unknown'
+ #     download_loc = "domosaics.jar" if @os == 'unknown'
       send_file("#{download_loc}", :filename => "#{BINARIES[@os]}")
       # EMAIL TO ANGSDT TEAM:
       UserMailer.download_notification(@user).deliver
