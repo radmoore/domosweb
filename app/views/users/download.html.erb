@@ -54,7 +54,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 <a class ="btn btn-large btn-primary" href="<%= download_file_url(:dtoken => @user.dtoken, :os => @os) %>"><i class="icon-arrow-down"></i> Download </a> 
 <%= link_to 'Cancel', 'http://www.domosaics.uni-muenster.de', :class =>'btn btn-large btn-danger'%>
 <% if @os != 'unknown' %>
-  <p>Suggested installer: <b><%= @os %></b></p>
+  <p>Suggested installer: <b><%= @os %></b> | <%= link_to 'Get jar file', download_file_url(:dtoken => @user.dtoken, :os => 'unknown') %> (no installation required)</p>
 <% else %>
   <p>There is no installer for your platform. You will receive the java archive.</p>
 <% end %>
