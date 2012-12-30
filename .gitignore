@@ -16,5 +16,6 @@
 
 # ignore some sensitive stuff
 /config/initializers/setup_mail.rb
+/config/environment.rb
 
 /.Gemfile.lock
