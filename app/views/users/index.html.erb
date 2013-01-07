@@ -138,11 +138,14 @@
         <ul class="nav nav-tabs">
           <li class="active"><a href="#tab1" data-toggle="tab">Sign up</a></li>
           <li><a href="#tab2" data-toggle="tab">Resend download key</a></li>
+          <li><a href="#tab3" data-toggle="tab">Direct download</a></li>
         </ul>
         <div class="tab-content">
+
           <div class="tab-pane active" id="tab1">
             <%= render :partial => 'signup_form' %>
           </div>
+
           <div class="tab-pane" id="tab2">
             <%= form_tag 'users/resend_token', :class=>'well form-search', :remote => true, :id => 'resendform' do %>
               <%= text_field_tag :email, nil, :class=>"input-xlarge", :required => true, :type => 'email', :placeholder =>'Your email' %>
@@ -150,14 +153,63 @@
               <span class="help-block">Email you used for signing-up</span>
             <% end %>
           </div>
+          <div class="tab-pane" id="tab3">
+              <b>By downloading this software, you agree with the following:</b>
+              <p style='text-align:justify;'>
+                THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+                ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+                WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+                IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+                INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+                NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+                PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+                WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+                ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
+                OF SUCH DAMAGE.  
+              </p>
+              <p style='text-align:justify;'><span class="label label-important">Note</span>:
+                DoMosaicS is licensed using the Apache License 2.0. For more information, please
+                visit</p>
+              <p style='text-align:center;'>
+                <%= link_to "http://www.apache.org/licenses/LICENSE-2.0", "http://www.apache.org/licenses/LICENSE-2.0" %>
+              </p>
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Version</th>
+                <th>Location</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>JAR</td>
+                <td>Binary</td>
+                <td>rv 1.82</td>
+                <td><%= link_to "http://iebservices.uni-muenster.de/domosaics/download/domosaics.jar", "http://iebservices.uni-muenster.de/domosaics/download/domosaics.jar" %></td>
+              </tr>
+              <tr>
+                <td>TAR</td>
+                <td>source files</td>
+                <td>rv 1.82</td>
+                <td><%= link_to "http://iebservices.uni-muenster.de/domosaics/download/domosaics-src.tgz", "http://iebservices.uni-muenster.de/domosaics/download/domosaics-src.tgz" %></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
     <div class='span4' style='padding-top:50px;'>
-      <p style='text-align:justify;'><b>Note</b>: We currently require you to sign-up; you will receive
+      <p style='text-align:justify;'>We recommend that you sign-up; you will receive
         an installer or jar file within minutes after sign-up. After sign-up, you will receive an email, with a link to your download.</p> 
-        <p style='text-align:justify;'><span class="label label-important">Important</span> We will 
-        not use your email for anything but to send you a <b>download link</b>.</p>
+       <p style='text-align:justify;'><span class="label label-important">Important</span> We will 
+        not use your email for anything but to send you a download link.</p>
+       <p style='text-align:justify;'>If you have lost the email with the download link, choose <b>Resend download key</b> and enter
+        the email you used for your original sign-up.</p>
+       <p style='text-align:justify;'>If you prefer not to sign-up, you can download the jar and source files directly by
+        clicking on <b>Direct download</b>.</p>
     </div>
   </div>
   <p style='float:right;'><a class='btn btn-small btn-info' href='#top'>top <i class="icon-arrow-up"></i></a></p>
