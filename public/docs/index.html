@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>DoMosaics Documentation</title>
+    <link rel="stylesheet" type="text/css" href="/assets/bootstrap_and_overrides.css">
+</head>
+<body>
+
+<div class="container">
+   <ul class="breadcrumb">
+     <li><a href="/">Home</a> <span class="divider">/</span></li>
+     <li class="active">Documentation</li>
+   </ul>
+  
+   <h1>DoMosaics</h1>
+    <a name="top"></a>
+    <p class="lead">Help</p>
+    <hr>
+
+    <!-- TOC -->
+    <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <ul>
+            <li><a href="#prereq">Prerequisites</a></li>
+            <li><a href="#obtain">Obtaining DoMosaics</a></li>
+            <li><a href="#use">Using the installer</a></li>
+        </ul>
+        <li><a href="#gettingStarted">Getting started</a></li>
+        <ul>
+            <li><a href="#wdir">Working directory</a></li>
+            <li><a href="#exampleDatasets">Example datasets</a></li>
+            <li><a href='#settings'>Settings</a></li>
+        </ul>
+        <li><a href='#loadData'>Loading data</a></li>
+        <ul>
+            <li><a href="#sequenceData">Sequence data</a></li>
+            <li><a href="#domainData">Domain data</a></li>
+            <li><a href="#treeData">Tree data</a></li>
+        </ul>
+        <li><a href="#domainAnnotation">Domain annotation</a></li>
+        <ul>
+            <li><a href="#interpro">InterPro</a></li>
+            <li><a href="#hmmer">HMMER</a></li>
+        </ul>
+        <li><a href="#actions">Actions</a></li>
+        <ul>
+            <li><a href="#interproscan">Annotate domains with InterProScan</a></li>
+            <li><a href="#hmmscan">Annotate domains using HMMSCAN</a></li>
+            <li><a href="#rads">Find Similar arrangements using RADS</a></li>
+            <li><a href="#tree">Create a tree based on sequences</a></li>
+            <li><a href="#domainTree">Create a tree based on domains</a></li>
+        </ul>
+        <li><a href="#tools">Tools</a></li>
+        <ul>
+            <li><a href="#distances">Distance matrix</a></li>
+            <li><a href="#domainGraph">Domain graph</a></li>
+            <li><a href="#domainDotplot">Domain dotplot</a></li>
+            <li><a href="#evalueRes">E-value resolver</a></li>
+        </ul>
+    </ol>
+    <br><br><br>
+
+    <!-- Section: Introduction -->
+    <div class='section' style='margin-top: 40px; text-align: justify;'>
+
+        <h3>1. Introduction</h3>
+        <a name="introduction"></a>
+        <hr>
+        <p>
+            Most proteins are comprised of smaller (structural) modules - <em>protein domains</em>
+            The evolution of proteins involves the re-arrangement, loss or gain of protein domains
+            in a process referred to as modular evolution.
+        </p>
+        <p>
+            DoMosaics is a tool for analysing and visualizing aspects of modular protein evolution.
+            It allows users to, starting with a set of related protein sequences, annotate protein domains
+            (using different domain annotation methods), and visualize <em>domain arrangements</em>
+            (the N- to C-terminal order of domains in a protein) along a phylogentic tree.
+            It can be used to find out whether a domain of
+            interest was lost, whether a group of proteins differs in its domain arrangements, or what the characteristic
+            domains for a phylogenetic group are.
+        </p>
+        <p>
+            Beyond domain annotation, DoMosaics allows users to examine domain annotations
+            to see whether the domains have been correctly identified. You can create dotplots, run a context-dependent
+            similarity analysis and more. Furthermore, you can also run some general phylogenetic profiling,
+            create domain network graphs, find domain insertion/deletion events or simply visualize and
+            manipulate phylogenetic trees.
+            All output can be saved as PDF or as SVG (which can be viewed in Firefox or edited using e.g.
+            Adobe Illustrator or Inkscape) as well as in a number of common bitmap formats.
+        </p>
+
+        <p class="text-success">What DoMosaics <b>is</b></p>
+        <div class="well">
+            A tool for creating publication-ready visualizations of domain arrangements and phylogenetic trees.
+            A tool for annotating domains in amino acid sequences, conducting comparisons between arrangements
+            (domain sequence comparisons, domain-dotplots), finding similar arrangements, conducting context-dependent
+            annotation, visualizing domain-occurrence graphs, or analyzing patters of gain and loss.
+         </div>
+
+        <p class="text-error">What DoMosaics <b>is not</b></p>
+        <div class="well">
+            DoMosaics is not a tool for conducting detailed sequence analysis, or constructing phylogenies.
+        </div>
+        <p>
+            This is the guide / documentation of DoMosaics. Use the menu at the top to browse by topic
+            If you have a problem, or cannot find what you are looking for, please do not hesitate
+            to get in touch with us under <a href="mailto:#">domosaics@uni-muenster.de</a>.
+        </p>
+    </div>
+    <p class="pull-right"><a href="#top">back to top</a></p>
+    <br><br>
+
+    <!-- Section: Installation -->
+    <div class='section' style='margin-top: 40px; text-align: justify;'>
+        <h3>2. Installation</h3>
+        <a name="installation"></a>
+        <hr>
+        <h4>Prerequists</h4>
+        <a name="prereq"></a>
+        <p>
+            DoMosaics requires a working Java installation. Furthermore, we recommend that users who plan to run
+            local HMMSCAN jobs have a least a dual-core system. You can find the appropriate Java
+            version for your system here:
+            <a href="http://java.com/en/download/index.jsp">http://java.com/en/download/index.jsp</a>
+            If you plan to run HMMSCAN you will further more require the HMMER package, which you can obtain from here:
+            <a href="http://hmmer.janelia.org/software">http://hmmer.janelia.org/software</a>
+        </p>
+        <br>
+
+
+        <h4>Obtaining DoMosaics</h4>
+        <a name="obtain"></a>
+        <p>
+        To get DoMosaics, navigate to the website <a href="http://www.domosaics.net">www.domosaics.net</a>, and go to the download
+        section. You can either download binaries directly, or obtain preconfigured installers for your system after sign-up.
+        If you sign-up, you will receive an an email with a download link. Following the link will lead to the download
+        web page. You have the choice of using a platform-specific installer (currently only available for
+        Windows and Linux - mac versions are to follow) or the simple Java archive file (.jar).<br>
+        <span class="label label-important">Note:</span> The jar-file will work on every system with a working Java installation,
+        however, it is best you use an installer if you do not know how to deal with a jar file.
+        </p>
+        <br>
+
+
+        <h4>Using the installer</h4>
+        <a name="use"></a>
+        Download the installer suggested by the website (or the appropriate installer for your system). On windows,
+        once the file is downloaded, double-click the installer to start it and follow the instructions.
+        On *unix systems, make the file executable once the download is complete:
+        <pre>[12:59] radmoore@joshua ~/Download $ chmod 755 domosaics-linux.sh</pre>
+        execute it as follows
+        <pre>[12:59] radmoore@joshua ~/Download $ ./domosaics-linux.sh</pre>
+        and follow the on-screen instructions.
+        <br>
+        <br>
+
+        <h4>Using the java archive (jar)</h4>
+        <a name="useJar"></a>
+        As mentioned above, as an alternatively you can run the DoMosaics java archive directly.
+        To download the archive, follow the download link from the sign-up email, and choose
+        'Get jar file'. If you do not wish to sign-up, go to the download section mentioned above and
+        select 'Direct Download' from the tab.
+        On *unix systems, you can run the Java archive as follows:
+        <pre>[12:59] radmoore@joshua ~/Download $ java -jar domosaics.jar</pre>
+        Users of other systems should be able to double-click the jar file.
+        <br>
+
+    </div>
+    <p class="pull-right"><a href="#top">back to top</a></p>
+    <br><br>
+
+    <!-- Section: Getting started -->
+    <div class='section' style='margin-top: 40px; text-align: justify;'>
+        <a name="gettingStarted"></a>
+        <h3>3. Getting Started</h3>
+        <hr>
+        <h4>Working Directory</h4>
+        <a name="wdir"></a>
+            When DoMosaics starts, you will be required to select a working directory. The workspace
+            (which includes all project data) will be saved in this directory.
+            By default, the working directory will be under ${user_home}/domosaics-workspace. The main window consists of:
+            <p>
+            <ul>
+                <li>the main menu and button bar on the top,</li>
+                <li>the workspace with all projects on the left,</li>
+                <li>and the main view on the right.</li>
+            </ul>
+            </p>
+        <br>
+
+        <a name="exampleDatasets"></a>
+        <h4>Example datasets</h4>
+        <div class='row'>
+            <div class='span8'>
+                To make it easier to get started, DoMosaics comes with two example datasets.
+                Open the example datasets by selecting "Actions" from the main menu, and then choosing
+                "Load example". For a walk through the small example dataset, have a look at the
+                <a href="#smallExample">small example</a> section. Once you have familiarized yourself
+                with the basics of the interface, find out more about how to load
+                your own data set under the <a href="#loadData">load data</a> section.
+            </div>
+            <div class="span4">
+                <div class="alert">
+                    <b>Objective</b>: Load examples<br>
+                    Main Menu, Actions, Load Example
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <a name='settings'></a>
+        <h4>Settings</h4>
+        <div class='row'>
+            <div class='span8'>
+                Some general settings can be saved in the settings dialog.
+            </div>
+            <div class="span4">
+                <div class="alert">
+                    <b>Objective</b>: Open settings<br>
+                    Main Menu, File, Settings
+                </div>
+            </div>
+        </div>
+
+        <p style="text-align: center;"><img src="img/settings.png"></p>
+
+        <b>General Settings</b><br>
+        <p>
+            InterPro (read section <a href="#interproscan">Interproscan</a> below) can be used to find domains in a set of protein
+            sequences. This service is offered by the <abbr title="European Bioinformatics Institute">EBI</abbr>.
+            In order to use this free public service, users must provide a valid email address. While an email address can be
+            provided in the user interface of interproscan and for each scan seperately, it will be lost as soon as the dialog
+            is closed. Users can provide a global email address here, which will be pre-filled in the interproscan form.
+        </p>
+        <p class="label label-important">Note</p> the email address provided <b>is used for interproscan only</b>.
+        Find out more on the conditions for using EBI Webservices <a href='http://www.ebi.ac.uk/Tools/webservices/help/faq'>here</a>.
+        <br>
+        <br>
+
+        <b>Local HMMER3 Setup</b><br>
+        <p>
+            If you use a local HMMER installation, you can pre-define the binaries and profiles you use for scanning
+            here. For more information on what these fields mean (and what they are good for), consult
+            the section on <a href="#hmmscan">Hmmscan</a> below.
+        </p>
+
+        <b>Workspace</b><br>
+        <p>
+            DoMosaics project data are saved in folders, with all relevant data saved in xml files. The project folders are
+            saved in a user-defined workspace folder (typically $user_home/domosaics-workspace).
+            If DoMosaics does not have a workspace folder set upon start up, users are prompted to enter one. The
+            workspace folder can be changed any time here.
+        </p>
+        <p>Users are prompted whether the workspace is to be synchronized upon exit (in which any changes made to existing projects,
+        as well as any new projects will be written to the workspace folder). This can be set as default by selecting the check-box
+        'Save Workspace on Exit'. If a project should already exist it can be overwritten (users will normally be prompted whether
+        existing project files are to be overwritten). This too can be set as default.</p>
+
+        <b>Help improve</b><br>
+        <p>
+        Should any errors occur while using DoMosaics, a simple error reports can be submitted to a dedicated <a href="http://iebservices.uni-muenster.de/bugzilla">bugzilla</a>
+        instance. By agreeing to 'Help improve DoMosaics' we are made aware of any Java <a href="http://en.wikipedia.org/wiki/Exception_handling">exceptions</a>
+        which might occur while using DoMosaics.<br>
+        Submitted error reports <b>do not contain any information on data used</b>. However, they do contain a dump of the current users environment which
+        often contains the username of the current user as well as directory names and paths (along with other, purely machine-based information).
+        The bug reports are used for the sole purpose of simplifying the reconstruction of the error (so that it can be fixed).
+        <b>We greatly appreciate your help in eradicating any errors which may occur</b>.
+        </p>
+
+    </div>
+    <p class="pull-right"><a href="#top">back to top</a></p>
+    <br><br>
+
+    <!-- Section: Loading data -->
+    <div class='section' style='margin-top: 40px; text-align: justify;'>
+        <h3>4. Loading Data</h3>
+        <a name="loadData"></a>
+        <hr>
+        There are three data types used within DoMosaics:
+        <p>
+            <ol>
+                <li>Trees</li>
+                <li>Sequences</li>
+                <li>Domains (arrangements)</li>
+            </ol>
+        </p>
+
+        These three types are separately loaded into a project (via File, Manage Projects). DoMosaics supports the following file formats:
+        <p>
+        <ol>
+            <li><a href="http://en.wikipedia.org/wiki/Newick_format">Newick</a> for trees</li>
+            <li><a href="http://en.wikipedia.org/wiki/Fasta_format">Fasta</a> for sequences</li>
+            <li><a href="#xdom">xdom</a>, <a href="#hmmscan">hmmscan</a> or <a href="#pfamscan">pfamscan</a> for domain annotation data</li>
+        </ol>
+        </p>
+
+        <div class='row'>
+            <div class='span8'>
+                <b>The best way to start with DoMosaics, is to load a file with fasta entries into a new project</b>
+                Domain annotation data can be obtained from within DoMosaics (see section <a href="#domainAnnotation">Domain Annotation</a>).
+                Trees are best created (from the same fasta file in which domains were annotated) using a
+                proper tree creation program (such as <a href="https://github.com/stamatak/standard-RAxML">RaxML</a> or
+                <a href="http://www.microbesonline.org/fasttree/">FastTree</a>), however DoMosaics can create trees
+                from input sequences (see section <a href="#trees">trees</a>) to get started.
+            </div>
+            <div class="span4">
+                <div class="alert">
+                    <b>Objective</b>: Load sequence data<br>
+                    Main Menu, File, Manage Projects, new Project, next, Sequence data
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <h4>Seqeuence data</h4>
+        <hr>
+        <a name="sequenceData"></a>
+        To load fasta files into DoMosaics, go to File, Manage Projects. Create a new project or
+        select an existing project from the menu. Click on 'next'. Select the data type 'Sequence'
+        and navigate to your fasta file. To associate the sequences with an existing domain-view,
+        select a view from the drop down. Note that the sequences are matched with the domain
+        arrangements of the domain view via their ID.<br>
+        For example, this sequence
+
+<pre>
+>P82176
+MKCLLYLCLWCYCVLVSSSIVLICNGGHEYYECGGACDNVCADLHIQNKTNCPIINIRCN
+DKCYCEDGYARDVNGKCIPIKDCPKIRSRRSIGIPVDKKCCTGPNEHYDEEKVSCPPETC
+ISLVAKFSCIDSPPPSPGCSCNSGYLRLNLTSPCIPICDCPQMQHSPDCQ
+</pre>
+        would match with a protein in the domain view named P82176. <b>Everything between the '>' and the first white space
+        is treated as the ID</b>.
+        <br>
+        <br>
+
+        <h4>Domain Arrangements</h4>
+        <hr>
+        <a name="domainData"></a>
+        <div class='row'>
+            <div class='span8'>
+                As mentioned above, domains can be annotated from within DoMosaics (see section Domain Annotation).
+                Domain annotation data can be loaded into a new or existing project.
+                Currently, the following formats are supported:
+            </div>
+            <div class="span4">
+                <div class="alert">
+                    <b>Objective</b>: Load domain data<br>
+                    Main Menu, File, Manage Projects, new Project, next, Arrangement
+                </div>
+            </div>
+        </div>
+
+        <b>1. </b>XDOM-format<br>
+        We recommend using the xdom format. It is the generic IO format which is an easy to
+        read, fasta-like representation of a protein with its constituent domains. For example,
+        the human protein ENSP00000376776 is represented in xdom format as:
+<pre>
+>ENSP00000376776  617
+57  171 DOMON 2.0e-25
+213 341 Cu2_monooxygen  7.5e-43
+360 521 Cu2_monoox_C  2.3e-52
+</pre>
+
+        ENSP00000376776 consists of three domains (DOMON, Cu2_monooxygen, Cu2_monoox_C) and has a sequence length of
+        617. In the xdom format, domains are sorted in N- to C terminal order.
+        Each domain line contains the start and stop position, some form of ID or accession number and an Evalue.
+        <br>
+        <br>
+
+        <b>2. </b>HMMSCAN output<br>
+        <a href="http://hmmer.janelia.org">HMMER</a> is a suite of powerful tools for applying hidden Markov models
+        (HMMs) to biological sequence data. HMMER is used to create Pfam HMMs. HMMSCAN is a program from the
+        HMMER package, and is used to search protein sequences against a collection of HMMs.
+        Using HMMSCAN, users can annotate known domains in a given sequence.
+        DoMosaics can import domain annotation produced by using hmmscan with the <code>--domtblout</code> option.
+        <br><br>
+        HMMSCAN can be run from within DoMosaics (see section <a href="#domainAnnotation">Domain annotation</a>). If you would like to run
+        hmmscan from the command line, consult the excellent HMMER manual which can be found at
+        <a href="http://hmmer.janelia.org">http://hmmer.janelia.org</a>
+        Note also that the HMMI also has a very nice web interface to hmmscan (and a couple of other programs
+        from the HMMER package).
+        <br>
+        <br>
+
+        <h4>Trees</h4>
+        <hr>
+        <a name="treeData"></a>
+        <div class='row'>
+            <div class='span8'>
+                DoMosaics reads tree which are formatted according to the Newick format description.
+                As with matching sequence and domain data, tree leaves (typically protein IDs) are
+                associated with proteins via the label of the leaf. Trees are best created using dedicated
+                software (such as RaxML or FastTree, see above).
+                <br><br>
+                Note that by a tree we here mean a phylogenetic tree which describes the evolutionary relationship
+                between a set of proteins. This is not to be confused with a domain-tree, which is a DoMosaics view type.
+            </div>
+            <div class="span4">
+                <div class="alert">
+                    <b>Objective</b>: Load a tree<br>
+                    Main Menu, File, Manage Projects, new Project, next, Tree
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <p class="pull-right"><a href="#top">back to top</a></p>
+    <br><br>
+
+    <!-- Section: Domain Annotation -->
+    <div class='section' style='margin-top: 40px; text-align: justify;'>
+        <a name="domainAnnotation"></a>
+        <h3>5. Domain Annotation</h3>
+        <hr>
+        DoMosaics provides two distinct ways to annotate domains in protein sequences.
+        <a name="interpro"></a>
+        <h4>InterPro</h4>
+        The first method,
+        InterProScan is a webservice provided by the <abbr title="European Bioinformatics Institute">IEB</abbr> (<a href="http://www.ebi.ac.uk/">http://www.ebi.ac.uk/</a>).
+        DoMosaics provides a graphical client for performing domain annotation with interproscan. <b>This is the simplest method for
+        annotating domains</b> in protein sequences, however it <b>can not be meaningfully applied to a large dataset</b>.
+        Find out more on how to performing a scan with InterProScan <a href="#interproscan">here</a>.
+        <br>
+        <br>
+
+        <a name="hmmer"></a>
+        <h4>HMMER</h4>
+        For larger datasets, and to have more control over the annotation process, a local hmmscan installation is
+        the most meaningful strategy. As mentioned above, hmmscan is part of the HMMER package. DoMosaics provides
+        a simple graphical frontend to a local installation of hmmscan. Find out more on conducting a local
+        hmmscan search <a href="http://hmmer.janelia.org/software">here</a>.
+        <br>
+    </div>
+    <p class="pull-right"><a href="#top">back to top</a></p>
+    <br><br>
+
+    <!-- Section: Actions -->
+    <div class='section' style='margin-top: 40px; text-align: justify;'>
+        <h3>6. Actions</h3>
+        <a name="actions"></a>
+        <hr>
+        DoMosaics provides two distinct ways to annotate domains in protein sequences.
+        <h4>InterPro</h4>
+        <hr>
+        <a name="interproscan"></a>
+        <p class='label label-important'>Note</p> Running an interproscan search requires a working internet connection.
+        <br><br>
+        As mentioned in the last section, the European Bioinformatics Institute (EBI) offers a service, interproscan,
+        by which protein sequences can be submitted to their systems for domain annotation.
+        Currently, 17 domain databases are supported by interproscan, 10 of which can be used from within DoMosaics.
+        For more information on interproscan, visit their website at
+        <a href='http://www.ebi.ac.uk/interpro/about.html'>http://www.ebi.ac.uk/interpro/about.html</a>
+        <br>
+        <br>
+        <p class="text-success"><b>Advantage</b></p>
+        <div class="well">
+        The advantages of running interproscan are the large number of supported domain definitions, the fact that
+        no installation is required, that domain definition models must not be obtained or processes and
+        that, at least for some of the supported databases, the Gene Ontology annotation of domain hits is
+        returned along with the domain information.
+        </div>
+
+        <p class="text-error"><b>Disadvantages</b></p>
+        <div class="well">
+        The disadvantages are that, as the resource is public and over the internet, only few sequences can be
+        annotated within a reasonable time frame (roughly XXX in 10 minutes). Furthermore, the user has no control
+        over the detection thresholds (which can for example be useful for running context-dependant annotation).
+        </div>
+        <br>
+
+        <div class='row'>
+            <div class='span8'>
+                To run an interproscan search, go to Actions, Interpro. This action can also be reached over
+                the button bar (button with the magnifying glass labeled IPR).
+            </div>
+            <div class="span4">
+                <div class="alert">
+                    <b>Objective</b>: Open Interproscan<br>
+                    Main Menu, Actions, Interpro // Button bar, magnifying glass labeled IPR
+                </div>
+            </div>
+        </div>
+
+        <div class='row'>
+            <div class="span6">
+                <b>Load sequences</b><br>
+                You can either load a fasta from disk, or select a sequence view
+                (should you have previously loaded sequence data into a project).
+                <br><br>
+
+                <b>Set parameters</b><br>
+                The EBI requires that all remote submissions provide an email address. You can either set an
+                email on a per-scan basis, or set it up for your future DoMosaics sessions in <a href="#settings">settings</a>.
+                <br><br>
+
+                <b>Submit job</b><br>
+                Select a domain detection method/database from the dropdown menu (e.g. hmmpfam corresponds to Pfam),
+                and submit the job. Hit apply when the job is complete and choose a name for the domain view.
+                <br><br>
+            </div>
+            <div class="span6">
+                <img src="img/iprscan.png">
+            </div>
+        </div>
+
+        <h4>Hmmscan</h4>
+        <hr>
+        <a name="hmmscan"></a>
+        <p>
+            Hmmscan is a program from the HMMER package. It is used to search protein sequences
+            against a database of hidden Markov models (HMM) profiles, such as those created stored in
+            <a href="http://pfam.sanger.ac.uk">Pfam</a>. HMMSCAN is used to detect the presence of domains in proteins.
+        <p class="label label-important">Note</p> you can set default values for the binaries and profiles
+        in the settings, found under Main menu, File, Settings.
+        </p>
+        <div class='row'>
+            <div class='span6'>
+                To run HMMSCAN locally, you will need the following:
+                <ul>
+                    <li>A working Hmmscan binary</li>
+                    <li>A working Hmmpress binary <b>OR</b> a properly indexed database of HMMs</li>
+                    <li>Ideally, a machine with more then one core (e.g. Pentium dual core)</li>
+                    <li>Your sequences in fasta format</li>
+                </ul>
+            </div>
+            <div class="span6">
+                <div class="alert">
+                    <b>Objective</b>: Open Hmmscan<br>
+                    Main Menu, Actions, Hmmscan // Button bar, magnifying glass
+                </div>
+            </div>
+        </div>
+
+        <div class='row'>
+            <div class="span6">
+                <p>
+                Both Hmmscan and Hmmpress binaries can be downloaded as part of an archive from
+                http://hmmer.janelia.org. Once downloaded, extract the archive and look for the 'binaries'
+                folder. In there, you should find the required binaries (Hmmscan and Hmmpress).
+                If you cannot find an archive for your OS, or the binaries do not work, you will have to compile
+                from source - please check the HMMER manual on instructions how to do so.
+                </p>
+
+                <b>HMMER3 scan bin</b><br>
+                As mentioned above, Hmmscan is used to search protein sequences against a collection of HMMs.
+                It computes scores (and E-values which reflect the significance of scores) which measures the
+                similarity between a query sequence and each model of the HMM library. Choose the hmmscan binaries
+                which can be found in the binaries folder mentioned above.
+                <br><br>
+
+                <b>HMMER3 press bin</b><br>
+                Hmmpress is used to index the HMM library (which allows for swift searches,
+                much like formatdb for BLAST). DoMosaics will automatically detect if your HMM
+                library is pressed or not (and will press HMM library should the binary be available).
+                Choose the hmmpress binaries which can be found in the binaries folder mentioned above.
+                <br><br>
+
+            </div>
+            <div class="span6">
+                <img src="img/hmmscan_ui.png">
+            </div>
+        </div>
+        <b>Profiles</b><br>
+        Once the Hmmscan and Hmmpress binaries have been loaded, you must select the file
+        containing the HMM profiles. It must be HMMER3 formatted.
+        For example, Pfam-A profiles can be obtained from the Pfam FTP server under
+        <a href="ftp://ftp.sanger.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz">ftp://ftp.sanger.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz</a>
+        For more information on the profiles, and how you can create your own, consult the HMMER manual.<br>
+        <p class="label label-info">Note</p> that you can conduct searches and construct profiles
+        on the <a href="http://hmmer.janelia.org/">HMMER website</a>.
+        <br><br>
+
+        <b>Query sequences</b><br>
+        Query Sequences
+        You can either load a fasta from disk, or select a sequence view (should you have previously <a href="#loadData">loaded sequence data into a project</a>).
+        <br><br>
+        <b>Options</b><br>
+        <p>
+        To assert the presence of a domain in a protein, <b>thresholds</b> are generally used to minimize the number of false positives.
+        The threshold can be either manually curated for each domain model (see the HMMER manual for a description of the gathering threshold)
+        or automatically set to an E-value (confidence) cut-off for all models. In DoMosaics, if the confidence cutoff is selected,
+        the per-model gathering threshold will be used. Otherwise, a global E-value cut-off can be entered.
+        Filters
+        </p>
+        <p>
+        HMMER3 applies a number of <b>filters</b> which amount to a drastic increase in speed. However, the downside of these
+        filers is that false positives can be expected (domains wrongly discarded by filters). HMMER, and DoMosaics, provides the option to turn
+        off some of the filters. The "bias filter" is for biased amino-acid composition (low-complexity) and the
+        "max filter" deactivates all filters (at the cost of much longer running times).
+        <p>
+        The Number of CPUs specifies on how many CPUs the scan will be performed.
+        </p>
+
+        <b>Post processing</b><br>
+        <p>
+        Hmmscan returns a list of all domain occurrences detected in a protein, which might contain <b>overlaps</b>.
+        This frequently occurs with homolog domain families (specialization of an ancestral domain).
+        DoMosaics has different methods for dealing with overlaps:
+        <ul>
+            <li>it can keep overlapping domains, which can be resolved later by manually curation</li>
+            <li>it can resolve overlaps based on "E-value" which is the standard approach used in Pfam or InterPro</li>
+            <li>it can remove overlapping domains according to a "maximum-coverage" approach</li>
+        </ul>
+        The latter puts larger emphasis on reducing the number of unassigned residues rather than accounting for
+        statistical significance; this is generally not advisable.
+       </p>
+       <p>
+       As part of the post processing of domain annotation, DoMosaics allows for context-dependant annotation as a mean
+       to provide more complete domain annotation. The objective of context-dependant annotation is to detect
+       remote/divergent but relevant additional domains by using similar arrangements to find possibly missed annotation.
+       <br>
+       Confidence thresholds are to guarantee the (quasi-)absence of false positives. However, such
+       stringent policy leads to numerous missed domains, especially in remote or divergent species.
+       This can be dealt with by lowering detection threshold. However, this comes at the cost of exponential number of false positives.
+       The <b>Co-Occurring Domain Detection</b> (CODD) approach (described in Terrapon et al., Bioinformatics, 2009)
+       exploits the tendency of domain families to appear with a highly
+       reduced set of "collaborating" other families. It filters the false positives to only retain the most trust-worthy
+       domains that barely escape from recommended (pre-defined) thresholds.
+       </p>
+    <br><br>
+
+     <h4>Rapid Alignment of Domain Strings</h4>
+        <a name="rads"></a>
+        <hr>
+        RADS (<b>R</b>apid <b>A</b>lignment of <b>D</b>omain <b>S</b>trings) is a search algorithm for finding similar domain arrangements
+        to a given query. RADS employs a dynamic programming approach to align domains of two arrangements. It
+        does not perform sequence comparison, and instead assumes that regions of two proteins which share a
+        domains have a similar sequence. RADS is complimented by RAMPAGE (Rapid Alignment Method of Proteins based on
+        domain ArranGEments), which aligns regions (domains and interdomainic) based on RADS results.
+        RAMPAGE preforms a global alignment of the sequences which correspond to these regions, and provides
+        increased sensitivity over RADS (in particular when comparing identical arrangements)
+
+        <p>For more information on RADS, visit <a href="http://rads.uni-muenster.de">http://rads.uni-muenster.de</a></p>
+
+        DoMosaics provides an interface to the RADS web service, and allows users to find arrangements in UniProt which
+        are similar to a given query. There are two distinct ways of accessing the RADS interface from within DoMosaics:
+
+        <ul>
+            <li>via the main menu, Actions, RADS (or via the button bar with the rat logo)</li>
+            <li>via the context menu of an arrangement (right click on an arrangement, RadsScan this arrangement - see image below)</li>
+        </ul>
+
+        <img src="img/rads.png">
+
+        <p class="label label-important">Note</p> It is important to note that<br>
+        <ol>
+            <li>the RADS/RAMPAGE webservice is Pfam-based (that is, it will only find arrangements with Pfam IDs)</li>
+            <li>scans can only be performed using a single query sequence</li>
+        </ol>
+
+        <b>Loading a sequence</b><br>
+        <p>
+        You can load a fasta entry from a file, or load an existing sequence view. If this route is chosen, the sequences are
+        first annotated (remotely, via the RADS webservice) using the Pfam domain definitions. After this step,
+        the resulting arrangement is used as a query to find similar arrangements in UniProt.
+        </p>
+        <p>
+        Note that if your file or view contains multiple entries, only a single entry will be chosen for the scan.
+        While for a file with multiple fasta entries the first entry will be chosen, using a sequence views with
+        multiple entries results in the use of any sequence from the view (as the entries in a sequence view are not ordered).
+        In other words, using a view to search only makes sense if you know all arrangements are the same
+        (or if you expect them to be very similar, such as could be the case for a set of orthologous proteins).
+        <p>
+        <b>Loading a domain arrangement</b><br>
+        <p>
+        You can also load a domain arrangement (in xdom format) from a file. As with sequences, only one entry will be
+        chosen from the file (the first); if a domain-view is chosen, the selection will be (as for sequences)
+        seemingly random. Again, this only makes sense if the arrangements in the arrangement view are the
+        same (or very similar). Furthermore, as the current implementation of RADS/RAMPAGE is based on
+        Pfam domain definitions your search will be unsuccessful if you use arrangements with domains other than Pfam.
+        If you have arrangements with other domain definitions, consider using the sequence instead.
+        </p>
+
+        <b>Choosing a search algorithm</b><br>
+        <p>
+        Both RADS and RAMPAGE can be used for the search (see above). A RAMPAGE search requires sequences, and implies
+        an initial RADS search. In most cases, the score values can remain as is (Set defaults will restore the default
+        scores if you should have changed them).
+        </p>
+
+        <b>The results table</b><br>
+        <p>
+        Once the search has completed, Show results will list all hits that were found (ordered by score).
+        Some information about the query, including a graphical representation of its arrangements are displayed at
+        the top. Select hits of interest by clicking the import checkbox (or use the select all button to import all hits).
+        Click on Import selection to import you selection. You can associate the scan hits with an existing project
+        from the dropdown menu.
+        </p>
+        <br><br>
+
+        <a name="tree"></a>
+        <h4>Create a tree</h4>
+        <hr>
+        <p class="label label-important">Note</p> It is important to know that DoMosaics is <b>not a program for building trees</b>.
+        <br>
+        <p>
+            The proper construction of a phylogenetic tree is a complex endeavor, and is best done with dedicated
+            software such as <a href="https://github.com/stamatak/standard-RAxML">RaxML</a> or
+            <a href="http://www.microbesonline.org/fasttree/">FastTree</a>. That said, DoMosacis is able to perform a simple tree construction
+            by using the PAL java libary for phylogenetic analysis.
+            In the first step, the sequences are aligned used EBIs interface to ClustalW. The resulting alignment is
+            then used to construct a tree.
+        </p>
+        <b>Choose a dataset</b><br>
+        <div class='row'>
+            <div class='span8'>
+                Open the dialog by clicking on Action, Trees, Create Tree. First, select the dataset you wish to use
+                for creating the tree. This is done by selecting either a arrangement-view or a sequence-view from an
+                existing project. If you choose an arrangement view, you may also use choose to select the sequences
+                associated with the arrangements (should such exist). To do so, select 'Use sequences' below the dropdown
+                menu. <b>Note</b> that this checkbox will not be active, if you do not have sequences loaded into your domain-view.
+                See how to associate sequences with a domain-view <a href="#loadData">here</a>.
+            </div>
+            <div class="span4">
+                <div class="alert">
+                    <b>Objective</b>: Open tree creation dialog<br>
+                    Main Menu, Actions, Trees, Create Tree
+                </div>
+            </div>
+        </div>
+
+        <p>
+            If you do not have sequences associated with the arrangements, you can build a tree based on a distance
+            matrix created from differences in the domain arrangements (see using domains for tree creation below).
+            Of course, you can select a regular sequence view for tree creation. Note that selecting a sequence view
+            will clear any arrangement-views you may have selected.
+        </p>
+
+        <b>Creating the tree</b><br>
+        <p>
+            After selecting the dataset, click 'Next'. Select a substitution matrix from the top dropdown, and choose a
+            tree constructing method from the bottom. Click 'Finish', and, once the tree construction is complete,
+            give the new tree-view a name (which must be unique) and associate with a project.
+            <br>
+            Once you have constructed a tree, you might consider creating a domain-tree view.
+        </p>
+        <br><br>
+
+        <a name="domainTree"></a>
+        <h4>Create a domain-tree</h4>
+        <hr>
+        <p>A domain tree is a tree with leaves associated to arrangements. It is a central element of DoMosaics, both for the analysis
+         of domain arrangements across a protein family, as well as for the visualization of related proteins
+         with their domain structure:</p>
+
+        <img src="img/domain-tree-example.png">
+
+        <div class='row'>
+            <div class='span8'>
+                To create a domain-tree view, you will need a project which has at least a domain-view and a tree view.
+                Note that when you create a domain-tree view you will loose the tree and the domain view (as they will be combined into one).
+                Open the dialog by clicking on Actions, Trees, Create Domain Tree. Choose an arrangement view and a tree
+                view which you wish to merge.
+                It is important to realize that the association will only work if the
+                labels of the leaves and the IDs of the arrangements are identical
+                (see also the section on <a href='#loadData'>loading data</a> for more information).
+            </div>
+            <div class="span4">
+                <div class="alert">
+                    <b>Objective</b>: Open domain-tree dialog<br>
+                    Main Menu, Actions, Trees, Create Domain Tree
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <p class="pull-right"><a href="#top">back to top</a></p>
+    <br><br>
+
+    <!-- Section: Tools -->
+    <div class="section" style="margin-top: 40px; text-align: justify;">
+    <a name="tools"></a>
+        <h3>7. Tools</h3>
+        <hr>
+        <a name="distances"></a>
+        <h4>Distance Matrix</h4>
+        <div class='row'>
+            <div class='span8'>
+                DoMosaics allows users to build trees based on domain arrangements, or to filter datasets to only
+                include similar
+                arrangements. These operations are achieved by using a measurement that describe the distance between
+                arrangements.
+                Currently, two types of distances are implemented: the (1) domain distance and the (2) Jaccard distance.
+                To open the distance matrix go to Tools -> Distance matrix.
+            </div>
+            <div class="span4">
+                <div class="alert">
+                    <b>Objective</b>: Open distance matrix<br>
+                    Main Menu, Tools, Distance Matrix
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <b>Jaccard Distance</b><br>
+
+        <p>
+            The <a href="http://en.wikipedia.org/wiki/Jaccard_index">Jaccard similarity coefficient</a> is used for
+            comparing sets, and is computed by dividing the intersection
+            of two given sets by their union. Ergo, a Jaccard index of 1 signifies that two given sets are identical.
+            The Jaccard distance can be easily computed by subtracting the Jaccard similarity coefficient from 1;
+            it moves between 0 and 1. In DoMosaics, the compared sets correspond to domain sets.
+        </p>
+        <br>
+
+        <b>Domain Distance</b><br>
+
+        <p>
+
+            The Domain distance is an edit distance, in which the differences between two strings can be measured as the
+            number of operations necessary to transform from one string into the other. Arrangements are strings of a
+            proteins constituent domains. As such, two arrangements can be compared using their edit distance,
+            using insertions and deletions as operations. A large domain distance indicates that a large number of
+            operations are necessary to go from one arrangements to another, and may be indicative of a
+            large evolutionary distance between the two considered proteins.
+        </p>
+
+        <p>
+            The distance matrix provides an overview of the distances between arrangements, whereas users can determine
+            which distance is to be used under 'Options'. The IDs/Names of the proteins as they appear in the
+            corresponding
+            view are found along the axis; choosing a cell in the matrix will highlight the two proteins which are being
+            compared.
+            The distances can be exported to a .csv file for further processing.
+        </p>
+
+        <p style="text-align: center;"><img src='img/distance-matrix.png'></p>
+
+        <p>
+            Datasets can be filtered by these distance matrices. To do so, select an arrangement
+            in a domain or domain-tree view, go to 'Edit' in the submenu and choose 'Collapse by similarity'. For
+            example, you can
+            filter the dataset by changing the max. allowed number of edit operations using a sliding bar
+        </p>
+
+        <p style="text-align: center;"><img src='img/d-distance-applied.png'></p>
+        <br>
+        <br>
+
+        <a name='domainGraph'></a>
+        <h4>Domain Graph</h4>
+        <hr>
+
+        <p class="label label-warning">Heads up!</p> The domain graph functionality of DoMosaics is still experimental.
+
+        <p>
+            In a domain graph, domains are displayed as nodes and edges connect domains which co-occur within at least
+            one
+            protein. Domain graphs can be undirected, where the edges have no direction and hence are indicative only of
+            co-occurrences, or directed, where edges have directions indicating the order in which they appear in
+            proteins.
+            In DoMosaics, domain graphs are directed (from N to C-terminus).
+        </p>
+
+        <p style="text-align: center;"><img src="img/domain-graph.png"></p>
+
+        <div class='row'>
+            <div class='span8'>
+                <b>Create a domain graph</b><br>
+                To show the domain-graph of the current domain-view dataset,
+                choose tools -> domain-graph from the menu of the domain-view or
+                the domain-tree-view. The numbers on the edges indicate the frequency
+                with which the indicated domain-adjacency occurs in the dataset.
+                For example, in the image above,
+                Lectin_C_mod occurs a total of 9 times N-terminal to the
+                domain PF00431.
+            </div>
+            <div class="span4">
+                <div class="alert">
+                    <b>Objective</b>: Open domain graph<br>
+                    Domain view sub menu, Tools, Domain Graph
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <p>
+            The threshold slider at the bottom can be used to visually highlight parts of the graph which have <em>at
+            least x</em>
+            neighbours. This is particularly useful for very large datasets.
+        </p>
+        <br>
+        <br>
+        <a name="domainDotplot"></a>
+        <h4>Domain Dotplot</h4>
+
+        <hr>
+
+        <p>
+            A <a href="http://en.wikipedia.org/wiki/Dot_plot_%28bioinformatics%29"> Dotplot </a> is a graphical method
+            for
+            conducting a pairwise-sequence comparison. By comparing all positions of
+            the first sequence to all positions of the second, matches (regions of similarity) of a given length
+            can be identified (word-length). Using the two sequences as axes to a rectangular plot, a dot a positioned
+            between words from both sequences which are similar.
+        </p>
+
+        <p>
+            Domain-dotplots are an extension of a regular dotplot. Given two selected domain arrangements <b>with an
+            underlying
+            sequence attached</b> (recognizable by a rectangular [s] which appears on mouse over on domains in the
+            domain-view),
+            a standard dotplot of amino-acids is created (with customisable substitution matrix, word length and score).
+        </p>
+
+        <p style="text-align: center;"><img src="img/dotplot.png"></p>
+
+        <p>
+            Additionally each domain of one protein is facing its corresponding (same domain family) in the other
+            protein, and is represented by a square with the indicated average conservation. Hence, this adds to the
+            global sequence conservation the information about which domain are the most conserved and, for example in
+            case of multiple repeats, which domains are likely paralogs.
+        </p>
+
+        <div class='row'>
+            <div class="span8">
+                <b>Create a domain dotplot</b><br>
+                To create a domain dotplot, select two sequences of interest in the domain-view keeping in mind that
+                they must be associated with an amino acid sequence. Once the two arrangements are selected
+                (recognizable by a red border around the arrangements in question), go to 'Tools->Domain Dotplot'. Image
+                export, matrix selection, and other options can be found in the tools menu.
+            </div>
+            <div class="span4">
+                <div class="alert">
+                    <b>Objective</b>: Create dotplot<br>
+                    Domain view sub menu, Tools, Domain Dotplot
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <a name="evalueRes"></a>
+        <h4>E-value Resolver</h4>
+        <hr>
+
+        <p>
+            This tool has been designed to post process domain annotation with loose (not stringent) E-value thresholds.
+            It includes 3 filters of domain annotations: an e-value filter, an overlap resolver, and the Co-Occurring
+            Domain Detection (CODD) method.
+        </p>
+
+        <p style="text-align: center;"><img src="img/evalue_res.png"></p>
+
+        <p>
+            The E-value filter allows a dynamic visualization of domain arrangements of proteins. Starting with a domain
+            annotation conducted with very high e-value thresholds, the user can play with the threshold settings
+            and see impact on domain arrangements (as opposed iteratively re-annotating with varying thresholds).
+        </p>
+
+        <p>
+            The overlap resolver allows to clean the domain annotation after a "complete domain annotation process" which
+            might contain overlapping domains at the same position. Only one domain occurrence is supposed to be
+            present/active at one position of a protein. The usual overlap resolvers is based on E-value, only retaining
+            domain occurrences with best e-values and removing overlapping domains incrementally. Additionally we propose a
+            resolver that maximize the coverage of the protein by domains. These options are provided to be able to retrieve
+            "standard arrangements" from overlapping ones. However, in some cases a user might be interested in keeping
+            overlaps as they must not result from erroneous annotation by misleading amino-acid sequences similarities,
+            but instead might also involve evolutionary relationships of domains.
+            In this later case, one must question which function is actually present, especially when scores and e-values
+            are high and significant.
+        </p>
+
+        <p>
+            The Co-Occurring Domain Detection (CODD) method (Terrapon et al., 2009) has been designed for the
+            context-dependent detection of divergent domains in remote species or detecting domains in species which exhibit
+            a high amino-acid composition bias. CODD works as a filter on putative domains (domains which do not satisfying defined thresholds)
+            by removing the most doubtful domains and retaining the most reliable ones. The filter takes advantage if the known property of
+            domain co-occurrence: most domain families are observed in proteins with only few other "favorite" (function
+            collaboration/compatibility) domain families. Hence, using a list of correlated domain pairs, CODD can certify
+            the presence of putative domains based on the asserted presence of others. This method is able to increase domain
+            annotation in case of divergence/bias while rejecting the majority of false putative domains generated
+            resulting from the loosening of E-value thresholds.
+        </p>
+
+    </div>
+    <p class="pull-right"><a href="#top">back to top</a></p>
+    <br><br>
+
+</div>
+
+</body>
+</html>
