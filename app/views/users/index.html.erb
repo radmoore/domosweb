@@ -7,14 +7,14 @@
    <%= link_to (image_tag '/assets/domosaics_banner.png', :alt=>'DoMosaicS'), 'http://www.domosaics.uni-muenster.de' %>
     <div class='btn-toolbar'>
       <div class="btn-group">
-         <a class="btn" href='#requirements'>Requirements <i class="icon-exclamation-sign"></i></a>
-         <a class='btn btn-success' href='#download'>Download <i class="icon-download"></i></a>
-         <a class='btn' href='#usage'>Using <i class="icon-info-sign"></i></a>
-         <a class='btn' href='#changelog'>Changelog <i class="icon-check"></i></a>
-         <a class='btn' href='#faq'>FAQ <i class="icon-question-sign"></i></a>
-         <a class='btn' href='http://domosdocs.uni-muenster.de'>Documentation <i class="icon-question-sign"></i></a>
-         <a class='btn' href='#referencing'>Referencing <i class="icon-share"></i></a>
-         <a class='btn' href='#contact'>Contact <i class="icon-envelope"></i></a>
+         <a class="btn" href='#requirements'>Requirements</a>
+         <a class='btn btn-success' href='#download'>Download</a>
+         <a class='btn' href='#usage'>Using</a>
+         <a class='btn' href='#changelog'>Changelog</a>
+         <a class='btn' href='#faq'>FAQ</a>
+         <%= link_to "Documentation", page_path("docs/index.html"), :class => 'btn' %>
+         <a class='btn' href='#referencing'>Referencing</a>
+         <a class='btn' href='#contact'>Contact</a>
       </div>
     </div>
   </div>
@@ -23,7 +23,6 @@
   <a name="about"></a>
   <h3>About</h3>
   <hr />
-    <%= link_to "Documentation", page_path("docs/index.html") %>
   <div class='row'>
   <div class='span12'>
     <div style='text-align:justify;'>DoMosaics (previously known as <b>AnGSTD</b>) shows you a tree with corresponding domain arrangements of the
@@ -236,7 +235,7 @@
   to leafs of a tree. A crude tree can be calculated using DoMosaics, but we recommend using proper software for that
   (eg. <%= link_to "RaxML", "http://icwww.epfl.ch/~stamatak/index-Dateien/Page443.htm" %> or <%= link_to 'FastTree', "http://www.microbesonline.org/fasttree/" %> ).
   You will probably get the hang of things by messing with the menus and wizards. 
-  For more information, visit the <%= link_to 'documentation', 'http://domosdocs.uni-muenster.de' %>.</p>
+  For more information, visit the <%= link_to 'documentation', page_path("docs/index.html") %>.</p>
   </div>
   <p style='float:right;'><a class='btn btn-small btn-info' href='#top'>top <i class="icon-arrow-up"></i></a></p>
   <br />
