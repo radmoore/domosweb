@@ -55,7 +55,6 @@ class UsersController < ApplicationController
   def thanks
   end
 
-
   private
 
   def get_client_os

@@ -59,7 +59,8 @@
   will be made available on github after we have released the first stable version.
   </p>
   </section>
-  <!--
+
+<!--
   <section id='screenshots'>
   <ul class="thumbnails">
         <li class="span4">
@@ -93,7 +94,7 @@
         </li>
       </ul>
   </section>
-  -->
+-->
 
   <a name="requirements"></a>
   <section='requirements'>
@@ -131,6 +132,11 @@
   <section id="download">
   <h3>Download</h3>
   <hr />
+  <div class="alert" style='text-align: center';>
+    <b>Warning</b>: The download of DoMosaics is currently disabled while we move the web application, update the binaries
+    and installers. We plan to complete all updates by <b>Friday, 31 of May</b>.
+    If need be, you can get the latest build <%= link_to 'here', "/builds/development/domosaics_build.jar" %>(jar file).
+  </div>
   <div class='row'>
     <div class='span8'>
       <div id='notification_field'></div>
@@ -149,7 +155,7 @@
           <div class="tab-pane" id="tab2">
             <%= form_tag 'users/resend_token', :class=>'well form-search', :remote => true, :id => 'resendform' do %>
               <%= text_field_tag :email, nil, :class=>"input-xlarge", :required => true, :type => 'email', :placeholder =>'Your email' %>
-              <%= submit_tag 'resend email', :class => "btn btn-primary", :disable_with => 'Sending...' %>
+              <%= submit_tag 'resend email', :class => "btn btn-primary", :disabled => 'disabled', :disable_with => 'Sending...' %>
               <span class="help-block">Email you used for signing-up</span>
             <% end %>
           </div>
