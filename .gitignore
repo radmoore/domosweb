@@ -19,3 +19,8 @@
 /config/environment.rb
 
 /.Gemfile.lock
+
+# ignore builds and deployment info
+/public/builds/*.jar
+/public/builds/jnlp/*.jnlp
+

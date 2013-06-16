@@ -132,23 +132,100 @@
   <section id="download">
   <h3>Download</h3>
   <hr />
+    <!---
   <div class="alert" style='text-align: center';>
     <b>Warning</b>: The download of DoMosaics is currently disabled while we move the web application, update the binaries
     and installers. We plan to complete all updates by <b>Friday, 31 of May</b>.
-    If need be, you can get the latest build <%= link_to 'here', "/builds/development/current_build.jar" %>(jar file).
+        If need be, you can get the latest build <%= link_to 'here', "/builds/development/current_build.jar" %>(jar file).
   </div>
+  -->
   <div class='row'>
     <div class='span8'>
       <div id='notification_field'></div>
       <div class="tabbable">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#tab1" data-toggle="tab">Sign up</a></li>
-          <li><a href="#tab2" data-toggle="tab">Resend download key</a></li>
+          <li class="active"><a href="#tab0" data-toggle="tab">Java web start</a></li>
+          <li><a href="#tab1" data-toggle="tab">Sign up for news</a></li>
           <li><a href="#tab3" data-toggle="tab">Direct download</a></li>
         </ul>
         <div class="tab-content">
 
-          <div class="tab-pane active" id="tab1">
+          <div class="tab-pane active" id="tab0">
+            <script src="http://java.com/js/deployJava.js"></script>
+            <script>
+                function launchJNLP(mem, offline) {
+                    var minVer = '1.6';
+                    var jnlp = 'builds/jnlp/domosaics-'+mem+'-'+offline+'.jnlp';
+                    alert("selected JNLP: "+jnlp)
+                    if ( !deployJava.isWebStartInstalled(minVer) ){
+                        if ( deployJava.installLatestJRE() ){
+                            if ( deployJava.launch(jnlp) ){ }
+                        }
+                    }
+                    else {
+                        if( deployJava.launch(jnlp) ){ }
+                    }
+                }
+            </script>
+            <% image_tag "java_logo.png" %>
+            <div class="well">
+            DoMosaics requires an up-to-date version of Java. Once installed, you can
+            start DoMosaics using JAVA web start by clicking Start DoMosaics below.
+            Note that this will also check for the correct JAVA version (and redirect you
+            to the download page if none was found). Find out more about
+            Java Web Start <a href="http://docs.oracle.com/javase/tutorial/deployment/webstart/">here</a>.
+            </div>
+
+            <div class='pull-left'>
+                <%= image_tag "java_logo.png" %>
+            </div>
+
+
+            <div class="pull-left">
+              <div class="form-horizontal">
+
+                <div class="control-group">
+                  <label class="control-label" for="JVMmem">JVM size</label>
+                  <div class="controls">
+                    <div class='input-append'>
+                    <select class='input-small span2' id='JVMmem'>
+                      <option></option>
+                      <option value='500'>500</option>
+                      <option selected='true' value='1000'>1000</option>
+                      <option value='1500'>1500</option>
+                      <option value='2000'>2000</option>
+                      <option value='2500'>2500</option>
+                    </select>
+                    <span class="add-on">MB</span>
+                    </div>
+                    <span class="help-block">The amount of memory allocated to the Java Virtual Machine</span>
+
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="offline">Run offline</label>
+                  <div class="controls">
+                    <select class='span2' id='offline'>
+                      <option value='S' selected="true">enabled</option>
+                      <option value='NS'>disabled</option>
+                    </select>
+                    <span class="help-block">Indicates whether the program will run when offline</span>
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <div class="controls">
+                    <button type='submit' class="btn btn-warning" onclick="launchJNLP( $('#JVMmem').val(), $('#offline').val())">Start DoMosaics</button>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+          <div class="tab-pane" id="tab1">
             <%= render :partial => 'signup_form' %>
           </div>
 
@@ -162,7 +239,7 @@
           <div class="tab-pane" id="tab3">
               <b>By downloading this software, you agree with the following:</b>
               <p style='text-align:justify;'>
-                THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+                THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
                 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
                 WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
                 IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
@@ -208,14 +285,15 @@
       </div>
     </div>
     <div class='span4' style='padding-top:50px;'>
-      <p style='text-align:justify;'>We recommend that you sign-up; you will receive
-        an installer or jar file within minutes after sign-up. After sign-up, you will receive an email, with a link to your download.</p> 
+      <p style='text-align:justify;'>Use JAVA web start to start the application. For most applications, the default
+        settings for memory should be sufficient. If you choose to enable the offline-mode, a link to the cached jar will
+        be placed on your desktop and in your start menu. You can sign up with a valid email to receive update information.</p>
        <p style='text-align:justify;'><span class="label label-important">Important</span> We will 
         not use your email for anything but to send you a download link.</p>
-       <p style='text-align:justify;'>If you have lost the email with the download link, choose <b>Resend download key</b> and enter
-        the email you used for your original sign-up.</p>
-       <p style='text-align:justify;'>If you prefer not to sign-up, you can download the jar and source files directly by
-        clicking on <b>Direct download</b>.</p>
+       <p style='text-align:justify;'>You can also access the JAVA archive directly, or build
+         DoMosaics from scratch by downloading the source files. We plan to release DoMosaics
+         on GitHub in the nearer future. If you wish to contribute, please get in touch and we will
+         gladly provide you with git read access</b>.</p>
     </div>
   </div>
   <p style='float:right;'><a class='btn btn-small btn-info' href='#top'>top <i class="icon-arrow-up"></i></a></p>
