@@ -8,10 +8,12 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
       if @user.save
         @user.attach_download_token
-        UserMailer.send_link(@user).deliver
+    #    UserMailer.send_link(@user).deliver
         # EMAIL TO ANGSDT TEAM:
         UserMailer.download_request_notification(@user).deliver
-        flash[:notice] = "We have sent a download link to <b>#{@user.email}</b>"
+        flash[:notice] = "You have signed up with the email <b>#{@user.email}</b>"
+      else
+        flash[:error] = "Unable to signup with the address <b>#{@user.email}</b>"
       end
   end
 

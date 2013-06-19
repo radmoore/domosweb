@@ -171,8 +171,9 @@
             <div class="well">
             DoMosaics requires an up-to-date version of Java. Once installed, you can
             start DoMosaics using JAVA web start by clicking Start DoMosaics below.
-            Note that this will also check for the correct JAVA version (and redirect you
-            to the download page if none was found). Find out more about
+            For most applications, the default memory settings should be sufficient.
+            If you choose to enable the offline-mode, a link to the cached jar will
+            be placed on your desktop and in your start menu. Find out more about
             Java Web Start <a href="http://docs.oracle.com/javase/tutorial/deployment/webstart/">here</a>.
             </div>
 
@@ -285,15 +286,18 @@
       </div>
     </div>
     <div class='span4' style='padding-top:50px;'>
-      <p style='text-align:justify;'>Use JAVA web start to start the application. For most applications, the default
-        settings for memory should be sufficient. If you choose to enable the offline-mode, a link to the cached jar will
-        be placed on your desktop and in your start menu. You can sign up with a valid email to receive update information.</p>
+      <p style='text-align:justify;'>Use JAVA web start to start the application.
+        JAVA web start allows users to start Java applications from a web server.
+        It also makes sure that the application is always on the latest version.
+        Note that, prior to running DoMosaics, your JAVA version we be checked
+        (and you will be redirect to the JAVA download page if none, or an insufficient version of JAVA was detected).
+        You can sign up with a valid email to receive update information.</p>
        <p style='text-align:justify;'><span class="label label-important">Important</span> We will 
         not use your email for anything but to send you a download link.</p>
        <p style='text-align:justify;'>You can also access the JAVA archive directly, or build
          DoMosaics from scratch by downloading the source files. We plan to release DoMosaics
          on GitHub in the nearer future. If you wish to contribute, please get in touch and we will
-         gladly provide you with git read access</b>.</p>
+         can set you up with git read access</b>.</p>
     </div>
   </div>
   <p style='float:right;'><a class='btn btn-small btn-info' href='#top'>top <i class="icon-arrow-up"></i></a></p>
@@ -303,23 +307,53 @@
 
   <a name='usage'></a>
   <section='usage'>
-  <h3>Using DoMosaics</h3>
+  <h3>Running DoMosaics</h3>
   <div style='text-align: justify;'>
   <hr />
   <p style='text-align:justify;'>
-  After signing-up, you will receive an email. Follow the link in the email. At the download page, you can
-  choose to either (<b>a</b>) download the installer suitable for your platform, or (<b>b</b>)
-  download the java archive (jar) file which should work on all platforms. If you choose the installer,
-  execute the installer and follow the instructions. On a *unix system, you will end up with a folder
-  that contains a binary. Under windows, you should receive an entry in the startmenu / desktop.
-  If you choose to download the jar file, run</p>
-  <pre>[12:59] radmoore@joshua ~/Desktop $ java -jar domosaics.jar</pre>
-  <p style='text-align:justify;'>to start DoMosaics. On windows, a double click will presumably do the job. Most users will want to start with a set of fasta sequences,
+  To run DoMosaics, click on <b>Start DoMosaics</b> above. DoMosaics requires JAVA 1.7.
+  Your browser will download a <abbr title="Java Network Launching Protocol">JNLP</abbr> file. Depending on your browser version and the availability of a JAVA plugin
+  you should see a dialog indicating the progress of the download. After the download has completed, you will need to accept the permission level (and risk - see below).
+    <section id='screenshots'>
+      <ul class="thumbnails">
+        <li class="span4">
+          <div class='thumbnail'>
+            <img src="/assets/installation/jws_download_app.png" alt="">
+            <div class='caption'>
+              <p>Downloading the DoMosaics JNLP file on Linux</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="span4">
+          <div class='thumbnail'>
+            <img src="/assets/installation/webstart_warning.png" alt="">
+            <p>The security warning on Windows</p>
+          </div>
+        </li>
+      <li class="span4">
+        <div class="alert alert-error">
+          <b>Note</b>: DoMosaics will ask for unrestricted access to your system. This is necessary to allow proper interaction with your system
+          (e.g. starting jobs, writing files etc). That said, we guarantee that DoMosaics will not do anything hidden or harmful to your system
+          in any way.
+        </div>
+      </li>
+    </ul>
+    </section>
+  If you enabled the offline mode above, you should see a DoMosaics Icon on your desktop (and in your start menu). There is no installation
+  (or deinstallation) necessary as the link points to a self contained java archive. When you are done with the application, you can simply delete
+  the link.
+    <!--
+  If you prefer using the command line, run the following to start DoMosaics
+  <pre>[12:59] radmoore@joshua ~/Desktop $ javaws http://www.domosaics.net/builds/jnlp/domosaics/domosaics-1000-S.jnlp/</pre>
+  this will require that you have correctly installed java web start. For more information on command line options, consult
+  < link_to "javaws command line reference", "http://docs.oracle.com/javase/1.5.0/docs/guide/javaws/developersguide/javaws.html" %>
+  -->
+  Once you have started DoMosaics, you will probably want to start with a set of fasta sequences,
   run the annotator (against <%= link_to "InterPro", "http://www.ebi.ac.uk/interpro/" %>) to annotate domains, and then associate the resulting domain architectures 
   to leafs of a tree. A crude tree can be calculated using DoMosaics, but we recommend using proper software for that
   (eg. <%= link_to "RaxML", "http://icwww.epfl.ch/~stamatak/index-Dateien/Page443.htm" %> or <%= link_to 'FastTree', "http://www.microbesonline.org/fasttree/" %> ).
-  You will probably get the hang of things by messing with the menus and wizards. 
-  For more information, visit the <%= link_to 'documentation', page_path("docs/index.html") %>.</p>
+   For more information on how to do what, visit the <%= link_to 'documentation', page_path("docs/index.html") %>.</p>
   </div>
   <p style='float:right;'><a class='btn btn-small btn-info' href='#top'>top <i class="icon-arrow-up"></i></a></p>
   <br />
@@ -393,10 +427,12 @@
   <ul>
 
     <li>
-    <em>Wait a minute... this site used to host a program called AnGSTD</em>
-    <p style='text-align:justify'>No worries - <b>DoMosaics is identical to AnGSTD</b>. AnGSTD was more of a working title, and as we are approaching
-    the first real release, we reconsidered naming options. There is no need to be concerned about webcites pointing to angstd.uni-muenster.de -
-    they will be redirected to domosaics.uni-muenster.de</p>
+      <em>When I start the application the JNLP file is displayed (and not started)</em>
+      <p>It is likely that your browser is not set up to handle JNLP files. If so, when you start DoMosaics you will see a dialog asking you what to do with the file.
+        In the window, click on Open with, select the javaws executable (depending on your operating system, the name can be different) and press OK.
+        If the "open with" option does not display the Java Web Start executable, map the .jnlp file to Java Web Start manually. This procedure
+        differs for different browsers - best google the right solution for your OS/Browser setup. Get in touch if the problem
+        is persistent.</p>
     </li>
 
     <li>
@@ -410,12 +446,11 @@
 
     <li>
     <em>I am using DoMosaics under Windows...</em>
-    <p style='text-align:justify;'>Most things should work under windows, but there are still a couple of issues. 
-    If you are having problems under windows, <a href="#contact">contact</a> us with some details and will get back to you.</p>
+    <p style='text-align:justify;'>If you are having problems under Windows, <a href="#contact">contact</a> us with some details and will get back to you.</p>
     </li>
 
     <li>
-    <em>When I start DoMosaics I get "The default workspace is currently in use ...</em>
+    <em>When I start DoMosaics I get "The default workspace is currently in use ..." and the remove button is not working </em>
     <p style='text-align:justify;'>This can happen when DoMosaics crashes violently, and can not clean up after itself. Navigate to the workspace folder you created
     when you started DoMosaics the first time (default is USER_HOME/.angstd-workspace) and remove the .lock file.</p>
     </li>
@@ -434,16 +469,13 @@
     <em>I am getting a java error: </em>
     <pre>Exception in thread "main" java.lang.OutOfMemoryError: Java heap space</pre>
     <p style='text-align:justify;'>This indicates that the <%= link_to 'Java virtual machine', "http://en.wikipedia.org/wiki/Java_virtual_machine" %>
-    has run out of memory. Try increasing the amount of memory allocated to the VM. To do so, on *unix systems, do</p>
-    <pre>
-    [13:04] radmoore@joshua ~/Desktop $ java -Xms512m -Xmx1024m -jar domosaics.jar</pre>
-    <p>to increase the initial and the max. size of your VMs heap space. Windows users must
-    <%= link_to 'google', "http://www.google.com/search?hl=en&q=windows+increase+heap+size+JVM&aq=f&aqi=&aql=&oq=&gs_rfai="%></p>
+    has run out of memory. Re-download DoMosaics, but choose a larger JVM size from the drop down menu above. <b>Note</b>
+      that while we have used DoMosaics with genome-sized datasets, some operations are not feasible for such large datasets.
     </li>
 
     <li>
     <em>Apparently, my question is not frequently asked...</em>
-    <p>Understandable. Don't hesitate, <a href="contact">contact</a> us. We love the feedback...</p>
+    <p>Please feel free to <a href="contact">contact</a> us</p>
     </li>
 
   </ul>
