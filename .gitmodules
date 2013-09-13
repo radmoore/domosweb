@@ -1,3 +1,0 @@
-[submodule "app/views/pages/docs"]
-	path = app/views/pages/docs
-	url = git@github.com:radmoore/domos-docs.git
