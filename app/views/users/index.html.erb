@@ -267,14 +267,14 @@ include a number of major changes. If need be, you can get the last build <% lin
               <tr>
                 <td>JAR</td>
                 <td>Binary</td>
-                <td>rv 0.89</td>
-                <td><%= link_to "http://iebservices.uni-muenster.de/domosaics/download/domosaics.jar", "http://iebservices.uni-muenster.de/domosaics/download/domosaics.jar" %></td>
+                <td>rv 0.92</td>
+                <td><%= link_to "http://domosaics.net/download/domosaics.jar", "http://domosaics.net/download/domosaics.jar" %></td>
               </tr>
               <tr>
                 <td>TAR</td>
                 <td>source files</td>
-                <td>rv 0.89</td>
-                <td><%= link_to "http://iebservices.uni-muenster.de/domosaics/download/domosaics-src.tgz", "http://iebservices.uni-muenster.de/domosaics/download/domosaics-src.tgz" %></td>
+                <td>rv 0.92</td>
+                <td><%= link_to "http://domosaics.net/download/domosaics-src.tgz", "http://domosaics.net/download/domosaics-src.tgz" %></td>
               </tr>
               </tbody>
             </table>
@@ -368,7 +368,13 @@ us improve DoMosaics!</b>
   <br />
   <br />
   <ul>
-    <span class="label label-info">REVISION 0.89</span> (current release candidate) 
+    <span class="label label-info">REVISION 0.92</span> (current release candidate) 
+    <ul>
+      <li>Removed insertion/deletion prediction</li>
+      <li>Adjustments to protein search</li>
+      <li>Auto-update of legend upon name/acc change in Domain Views</li>
+    </ul>
+    <span class="label label-info">REVISION 0.89</span>
     <ul>
       <li>Window stacking issue solved</li>
       <li>Fixed issue with unresponsive panels</li>
@@ -445,14 +451,19 @@ does not influence the functionality of DoMosaics</li>
         In the window, click on Open with, select the javaws executable (depending on your operating system, the name can be different) and press OK.
         If the "open with" option does not display the Java Web Start executable, map the .jnlp file to Java Web Start manually. This procedure
         differs for different browsers - best google the right solution for your OS/Browser setup. Get in touch if the problem
-        is persistent.</p>
+        is persistent.
+				<strong>Note</strong>: there is a known issue on ubuntu which relates to javaws pointing to the wrong JAVA version. See
+				<%= link_to 'here', 'https://bugs.launchpad.net/ubuntu/+source/icedtea-web/+bug/969520' %> for more information.
+			</p>
     </li>
 
     <li>
     <em>How is DoMosaics licensed?</em>
-    <p style='text-align:justify'>We will release DoMosaics using some <b>open source license</b>, and the code will be
-    deposited in <b>github</b> once we have reached the first stable release. Until that point, drop us an email and
-    we can set you up with access to our git repo.
+    <p style='text-align:justify'>
+    DoMosaics is <b>open source</b> and is released under the <%= link_to 'Apache License, Version 2.0', 'http://www.apache.org/licenses/LICENSE-2.0' %>
+		We plan to release the source code on github in the nearer future, until then you can download the sources from
+		<%= link_to 'here', 'http://domosaics.net/download/domosaics-src.tgz' %>. Alternatively, you can drop us a note and we can provide
+		access to our git repo.
     </p>
     </li>
 
@@ -465,14 +476,16 @@ does not influence the functionality of DoMosaics</li>
     <li>
     <em>When I start DoMosaics I get "The default workspace is currently in use ..." and the remove button is not working </em>
     <p style='text-align:justify;'>This can happen when DoMosaics crashes violently, and can not clean up after itself. Navigate to the workspace folder you created
-    when you started DoMosaics the first time (default is USER_HOME/.angstd-workspace) and remove the .lock file.</p>
+    when you started DoMosaics the first time (default is USER_HOME/domosaics-workspace) and remove the .lock file.</p>
     </li>
     <li>
     <em>How do I get started? Is there a manual?</em>
     <p style='text-align:justify;'>
-    Yes. There is a (currently growing) manual, which can be found <%= link_to 'here', 'http://domosdocs.uni-muenster.de' %>.
-    To get you started, we have added an example data set for users to use a bit prior 
-    'production' use (which can be found under 'Help'). In general, it is probably easiest to
+    Yes. There is an online manual <%= link_to 'here', 'http://domosaics.net/docs/index.html' %>.
+    Furthermore, to get you started, we have added an example data set for users to use a bit prior 
+    'production' use (which can be found under 'Help' in the porgram). A corresponding quick start guide
+    which uses the example dataset can be found <%= link_to 'here', 'http://domosaics.net/docs/quickstart.html' %>.
+    In general, it is probably easiest to
     start with a set of protein sequences (fasta format), and load them into DoMosaics (File -> Manage Projects
     -> Create new Project (name, next) -> choose sequence -> select sequence file (fasta))
     Once the view is loaded, run a search for domains using InterProScan (Actions -> InterPro) to create a domain view.</p>
