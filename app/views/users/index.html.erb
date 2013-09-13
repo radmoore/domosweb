@@ -4,7 +4,7 @@
 <div class="container">
 <div class='row'>
   <div class='span12'>
-   <%= link_to (image_tag '/assets/domosaics_banner.png', :alt=>'DoMosaicS'), 'http://www.domosaics.uni-muenster.de' %>
+   <%= link_to (image_tag '/assets/domosaics_banner.png', :alt=>'DoMosaics'), 'http://www.domosaics.uni-muenster.de' %>
     <div class='btn-toolbar'>
       <div class="btn-group">
          <a class="btn" href='#requirements'>Requirements</a>
@@ -131,13 +131,12 @@
   <section id="download">
   <h3>Download</h3>
   <hr />
-    <!---
+<!--
   <div class="alert" style='text-align: center';>
-    <b>Warning</b>: The download of DoMosaics is currently disabled while we move the web application, update the binaries
-    and installers. We plan to complete all updates by <b>Friday, 31 of May</b>.
-        If need be, you can get the latest build <%= link_to 'here', "/builds/development/current_build.jar" %>(jar file).
+    <b>Warning</b>: The java webstart of DoMosaics is currently disabled while we complete the newest release of DoMosaics, which will
+include a number of major changes. If need be, you can get the last build <% link_to 'here', "/builds/development/current_build.jar" %>(jar file).
   </div>
-  -->
+-->
   <div class='row'>
     <div class='span8'>
       <div id='notification_field'></div>
@@ -155,7 +154,6 @@
                 function launchJNLP(mem, offline) {
                     var minVer = '1.6';
                     var jnlp = 'builds/jnlp/domosaics-'+mem+'-'+offline+'.jnlp';
-                    alert("selected JNLP: "+jnlp)
                     if ( !deployJava.isWebStartInstalled(minVer) ){
                         if ( deployJava.installLatestJRE() ){
                             if ( deployJava.launch(jnlp) ){ }
@@ -190,8 +188,8 @@
                     <div class='input-append'>
                     <select class='input-small span2' id='JVMmem'>
                       <option></option>
-                      <option value='500'>500</option>
-                      <option selected='true' value='1000'>1000</option>
+                      <option selected='true' value='500'>500</option>
+                      <option value='1000'>1000</option>
                       <option value='1500'>1500</option>
                       <option value='2000'>2000</option>
                       <option value='2500'>2500</option>
@@ -216,7 +214,7 @@
 
                 <div class="control-group">
                   <div class="controls">
-                    <button type='submit' class="btn btn-warning" onclick="launchJNLP( $('#JVMmem').val(), $('#offline').val())">Start DoMosaics</button>
+                    <button type='submit' class="btn btn-warning" onclick="launchJNLP( $('#JVMmem').val(), $('#offline').val())"> Start DoMosaics</button>
                   </div>
                 </div>
               </div>
@@ -269,13 +267,13 @@
               <tr>
                 <td>JAR</td>
                 <td>Binary</td>
-                <td>rv 1.82</td>
+                <td>rv 0.89</td>
                 <td><%= link_to "http://iebservices.uni-muenster.de/domosaics/download/domosaics.jar", "http://iebservices.uni-muenster.de/domosaics/download/domosaics.jar" %></td>
               </tr>
               <tr>
                 <td>TAR</td>
                 <td>source files</td>
-                <td>rv 1.82</td>
+                <td>rv 0.89</td>
                 <td><%= link_to "http://iebservices.uni-muenster.de/domosaics/download/domosaics-src.tgz", "http://iebservices.uni-muenster.de/domosaics/download/domosaics-src.tgz" %></td>
               </tr>
               </tbody>
@@ -364,12 +362,28 @@
   <h3>Changelog</h3>
   <hr />
   <div style='text-align: justify;'>
-  We have have been working hard at cleaning up DoMosaics for final release. We have fixed a number of annoying bugs and have
-  added a couple of new features (and bugs).
+  Please report any bugs you may find to domosaics[at]uni-muenster.de, or submit a bug report to 
+<a href="http://iebservices.uni-muenster.de/bugzilla">http://iebservices.uni-muenster.de/bugzilla</a>. <b>Thanks for helping
+us improve DoMosaics!</b>
   <br />
   <br />
   <ul>
-    <span class="label label-info">REVISION 1.79</span> (current release candidate) 
+    <span class="label label-info">REVISION 0.89</span> (current release candidate) 
+    <ul>
+      <li>Window stacking issue solved</li>
+      <li>Fixed issue with unresponsive panels</li>
+      <li>Fixed issue which led to InterProScan jobs not being cancelled when requested</li>
+      <li>Fixed issue with failure during submission of InterProScan jobs</li>
+      <li>...</li>
+    </ul>
+      <i class="icon-warning-sign"></i> Known issues:
+      <ul>
+          <li>On windows, the "report exception" functionality can fail when operating behind Symantec Endpoint Protection. This
+does not influence the functionality of DoMosaics</li>
+      </ul>
+     <br />
+
+    <span class="label label-info">REVISION 0.79</span>
     <ul>
       <li>Lots of bugfixes</li>
       <li>Cleaned up UI and wizards</li>
@@ -387,7 +401,7 @@
           drop us an email if you experience this (and include the fasta file).</li>
       </ul>
      <br />
-    <span class="label label-info">REVISION 1.78</span> (current beta release) 
+    <span class="label label-info">REVISION 0.78</span>
       <ul>
         <li>Complete overhaul of workspace management</li>
         <li>Updated iprscan to reflect changes to EBI interproscan API</li>
@@ -407,7 +421,7 @@
        <li>Job management: submitted jobs do not cancel properly upon abort (in some special cases)</li> 
      </ul>
      <br />
-     <span class='label label-info'>REVISION 1.68</span> (first public release) <br />
+     <span class='label label-info'>REVISION 0.68</span> (first public release) <br />
      <i class="icon-warning-sign"></i> Known issues:
      <ul>
        <li>Bug in SwingWorker for Java SDK versions 1.6.0_18 - 1.6.0_20; InterProScan does not work properly.
@@ -485,15 +499,21 @@
   <br />
 
   <section id='referencing'>
-  <h3>How do I reference DoMosaics in my work?</h3>
+  <h3>References and Referencing DoMosaics</h3>
   <hr />
   <p style='text-align:justify;'>
-  A manuscript decribing DoMosaics has been submitted. To date, we and others have used DoMosaics in a number of publications, and have
-  (for example, see <%= link_to "PMID:20075255", "http://www.ncbi.nlm.nih.gov/pubmed/20075255" %> 
-  and <%= link_to "PMID:2093230", "http://www.ncbi.nlm.nih.gov/pubmed/20932300" %>).</p>
-  <p style='text-align:justify;'> <b>Long story short</b>: Please consult this site before publishing. For the time being, if your journal
-  supports URL citations, please cite</p>
-  <p style='text-align:center;'><%= link_to "http://www.domosaics.uni-muenster.de","http://www.domsaics.uni-muenster.de" %></p>
+  Here are some of the studies in which we (or others) have successfully used DoMosaics
+<ul>
+<li>Werren JH et al, Science (2010)</li>
+<li>Rüping B et al, BMC Plant Biol (2010)</li> 
+<li>Kersting A et al, Genome Biol Evol (2012)</li> 
+<li>Moore AD and Bornberg-Bauer E, MBE (2012)</li> 
+<li>Moore AD et al, BBA Proteins and Proteomics (2013)</li> 
+</ul>
+
+  A manuscript decribing DoMosaics has been submitted. We will drop a note on to this site when the paper is out. In any case,
+  if your journal supports webcitations, please cite:
+<p style='text-align:center;'><%= link_to "http://www.domosaics.uni-muenster.de","http://www.domsaics.uni-muenster.de" %></p>
   <p style='float:right;'><a class='btn btn-small btn-info' href='#top'>top <i class="icon-arrow-up"></i></a></p>
   <br />
   <br />

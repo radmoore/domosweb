@@ -4,17 +4,18 @@
       xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>DoMosaics Documentation</title>
-    <link rel="stylesheet" type="text/css" href="/assets/bootstrap_and_overrides.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 </head>
 <body>
 
 <div class="container">
-   <ul class="breadcrumb">
-     <li><a href="/">Home</a> <span class="divider">/</span></li>
-     <li class="active">Documentation</li>
-   </ul>
-  
-   <h1>DoMosaics</h1>
+<ul class="breadcrumb">
+   <li><a href="/">Home</a> <span class="divider">/</span></li>
+   <li class="active">Documentation</li>  <span class="divider">/</span></li>
+   <li><a href="quickstart.html">Quickstart guide</a>
+</ul>
+
+    <h1>DoMosaics</h1>
     <a name="top"></a>
     <p class="lead">Help</p>
     <hr>
@@ -25,11 +26,11 @@
         <li><a href="#installation">Installation</a></li>
         <ul>
             <li><a href="#prereq">Prerequisites</a></li>
-            <li><a href="#obtain">Obtaining DoMosaics</a></li>
-            <li><a href="#use">Using the installer</a></li>
+            <li><a href="#useJar">Using the jar file</a></li>
         </ul>
         <li><a href="#gettingStarted">Getting started</a></li>
         <ul>
+            <li><a href="quickstart.html">Quickstart guide</a></li>
             <li><a href="#wdir">Working directory</a></li>
             <li><a href="#exampleDatasets">Example datasets</a></li>
             <li><a href='#settings'>Settings</a></li>
@@ -52,6 +53,13 @@
             <li><a href="#rads">Find Similar arrangements using RADS</a></li>
             <li><a href="#tree">Create a tree based on sequences</a></li>
             <li><a href="#domainTree">Create a tree based on domains</a></li>
+        </ul>
+        <li><a href="#views">Views</a></li>
+        <ul>
+            <li><a href="#seqview">Sequence view</a></li>
+            <li><a href="#seqview">Tree view</a></li>
+            <li><a href="#domainView">Domain view</a></li>
+            <li><a href="#domainTreeView">Domain tree view</a></li>
         </ul>
         <li><a href="#tools">Tools</a></li>
         <ul>
@@ -132,30 +140,26 @@
         <br>
 
 
-        <h4>Obtaining DoMosaics</h4>
-        <a name="obtain"></a>
+        <h4>Installing DoMosaics</h4>
+        <a name="install"></a>
         <p>
         To get DoMosaics, navigate to the website <a href="http://www.domosaics.net">www.domosaics.net</a>, and go to the download
-        section. You can either download binaries directly, or obtain preconfigured installers for your system after sign-up.
-        If you sign-up, you will receive an an email with a download link. Following the link will lead to the download
-        web page. You have the choice of using a platform-specific installer (currently only available for
-        Windows and Linux - mac versions are to follow) or the simple Java archive file (.jar).<br>
-        <span class="label label-important">Note:</span> The jar-file will work on every system with a working Java installation,
-        however, it is best you use an installer if you do not know how to deal with a jar file.
+        section. Here, you can run DoMosaics using <a href="">Java Web Start</a>. In order to do so, you must select the
+        <abbr title="Java Virtual Machine">JVM</abbr> size (e.g. 500MB), and press 'Start DoMosaics'.
+        Your browser will download a <abbr title="Java Network Launcher Protocol">JNLP</abbr> file and ask for you to confirm
+        the security exception. <b>Note</b> that DoMosaics will require full permission to your system in order to interact
+        with processes, write files etc. Once you confirm the security settings, the program should start.
+        If you prefer, you can also Download the jar and run it manually (or compile the program from source). Choose the
+        tab 'Direct Download' to get the binaries and source files.
         </p>
-        <br>
-
-
-        <h4>Using the installer</h4>
-        <a name="use"></a>
-        Download the installer suggested by the website (or the appropriate installer for your system). On windows,
-        once the file is downloaded, double-click the installer to start it and follow the instructions.
-        On *unix systems, make the file executable once the download is complete:
-        <pre>[12:59] radmoore@joshua ~/Download $ chmod 755 domosaics-linux.sh</pre>
-        execute it as follows
-        <pre>[12:59] radmoore@joshua ~/Download $ ./domosaics-linux.sh</pre>
-        and follow the on-screen instructions.
-        <br>
+        <p>
+        If your browser does not autostart the jar file after download, it is likely that your browser is not set up to
+        handle JNLP files. If so, when you start DoMosaics you will see a dialog asking you what to do with the file.
+        In the window, click on Open with, select the javaws executable (depending on your operating system, the name can
+        be different) and press OK. If the "open with" option does not display the Java Web Start executable,
+        map the .jnlp file to Java Web Start manually. This procedure differs for different browsers - best google
+        the right solution for your OS/Browser setup.
+        </p>
         <br>
 
         <h4>Using the java archive (jar)</h4>
@@ -196,10 +200,10 @@
         <h4>Example datasets</h4>
         <div class='row'>
             <div class='span8'>
-                To make it easier to get started, DoMosaics comes with two example datasets.
-                Open the example datasets by selecting "Actions" from the main menu, and then choosing
-                "Load example". For a walk through the small example dataset, have a look at the
-                <a href="#smallExample">small example</a> section. Once you have familiarized yourself
+                To make it easier to get started, DoMosaics comes with an example dataset.
+                Open the example dataset by selecting "Help" from the main menu, and then choosing
+                "Load example project". For a walk through the small example dataset, have a look at the
+                <a href="#exampleProject">example project</a> section. Once you have familiarized yourself
                 with the basics of the interface, find out more about how to load
                 your own data set under the <a href="#loadData">load data</a> section.
             </div>
@@ -234,7 +238,7 @@
             InterPro (read section <a href="#interproscan">Interproscan</a> below) can be used to find domains in a set of protein
             sequences. This service is offered by the <abbr title="European Bioinformatics Institute">EBI</abbr>.
             In order to use this free public service, users must provide a valid email address. While an email address can be
-            provided in the user interface of interproscan and for each scan seperately, it will be lost as soon as the dialog
+            provided in the user interface of interproscan and for each scan separately, it will be lost as soon as the dialog
             is closed. Users can provide a global email address here, which will be pre-filled in the interproscan form.
         </p>
         <p class="label label-important">Note</p> the email address provided <b>is used for interproscan only</b>.
@@ -304,9 +308,9 @@
                 <b>The best way to start with DoMosaics, is to load a file with fasta entries into a new project</b>
                 Domain annotation data can be obtained from within DoMosaics (see section <a href="#domainAnnotation">Domain Annotation</a>).
                 Trees are best created (from the same fasta file in which domains were annotated) using a
-                proper tree creation program (such as <a href="https://github.com/stamatak/standard-RAxML">RaxML</a> or
-                <a href="http://www.microbesonline.org/fasttree/">FastTree</a>), however DoMosaics can create trees
-                from input sequences (see section <a href="#trees">trees</a>) to get started.
+                proper tree creation program (such as <a href="https://github.com/stamatak/standard-RAxML">RaxML</a>,
+                <a href="http://www.microbesonline.org/fasttree/">FastTree</a> or  <a href="http://www.atgc-montpellier.fr/phyml/">PhyML</a>),
+                however DoMosaics can create trees from input sequences (see section <a href="#trees">trees</a>) to get started.
             </div>
             <div class="span4">
                 <div class="alert">
@@ -703,7 +707,7 @@ ISLVAKFSCIDSPPPSPGCSCNSGYLRLNLTSPCIPICDCPQMQHSPDCQ
             The proper construction of a phylogenetic tree is a complex endeavor, and is best done with dedicated
             software such as <a href="https://github.com/stamatak/standard-RAxML">RaxML</a> or
             <a href="http://www.microbesonline.org/fasttree/">FastTree</a>. That said, DoMosacis is able to perform a simple tree construction
-            by using the PAL java libary for phylogenetic analysis.
+            by using the PAL java library for phylogenetic analysis.
             In the first step, the sequences are aligned used EBIs interface to ClustalW. The resulting alignment is
             then used to construct a tree.
         </p>
@@ -774,211 +778,446 @@ ISLVAKFSCIDSPPPSPGCSCNSGYLRLNLTSPCIPICDCPQMQHSPDCQ
     <p class="pull-right"><a href="#top">back to top</a></p>
     <br><br>
 
+    <!-- Section: Views -->
+    <div class="section" style="margin-top: 40px; text-align: justify;">
+        <a name="views"></a>
+        <h3>7. Views</h3>
+        <hr>
+        <p>Views belong to projects and are displayed in the left-hand side of the workspace.
+        Every project can have one of four different view types</p>
+        <ol>
+            <li>Sequence view</li>
+            <li>Tree view</li>
+            <li>Domain view</li>
+            <li>Domain-tree view</li>
+        </ol>
+        <p>
+        Each view is associated with its own view panel (main window on the right), and comes with a distinct
+        set of functionalities organised in a main menu (at the top of the view panel), and context menus
+        available by a mouse right-click on items within the view. Within one project in the workspace,
+        each of these four view types is a separate category (node in the tree):</p>
+        <img src="img/project-icons.png">
+        <p>Note that each of these four types is associated with a specific icon. Domain arrangements that are
+        associated with sequences are signified by an additional 's' in the icon. Views can be selected through
+        double click. An active view is displayed in the main view panel on the left.</p>
+        <p>
+            There are a number of functionalities in each view. Here, we will only illustrate some of the features
+            specific to DoMosaics. All views provide means for exporting back-end data to files (e.g. sequence view to
+            fasta) or to graphics (pixel and vector).
+        </p>
+        <br />
+        <br />
+        <h4>Sequence view</h4>
+        <a name="seqview"></a>
+        <p>The sequence view is the simplest of all views.
+        Sequence views provide means for the user to maintain the association between a set of sequences and corresponding domain
+        annotation or trees. Furthermore, sequence views can be selected wherever sequences are needed (e.g. for domain annotation). They can also
+        be created from other views, for example through the use of the 'Select sequence' functionality in the Domain-view (see below).</p>
+        <br />
+        <br />
+        <h4>Tree view</h4>
+        <a name="treeView"></a>
+        <div class="alert alert-danger">
+            <b>Note</b>: While trees can be created using DoMosaics, it is not a program for constructing trees. The best approach
+            is to use a dedicated phylogenetic program to create a tree (such as <a href="https://github.com/stamatak/standard-RAxML">RaxML</a>,
+            <a href="http://www.microbesonline.org/fasttree/">FastTree</a> or <a href="http://www.atgc-montpellier.fr/phyml/">PhyML</a>),
+            and to then import your tree (as newick) into DoMosaics (see section on <a href="#loadData">importing trees</a>).
+        </div>
+        <p>When a tree view is open, the main menu (main view panel at the right) will display the tree. A number of tree
+        specific options are available under 'View' in the main menu (e.g. expand leaves or show bootstrap values).
+        Tree visuals can be adjusted under 'Edit' (e.g. change <b>edge weights</b> or <b>fonts</b>)
+        </p>
+        <h5>Context menu: Node</h5>
+        <p>
+           A right mouse on nodes in the tree will show the node context menu, from which a number of operations are available
+           such as highlight subtree, rotate children, re-root tree, collapse/expand etc. <b>Note</b> that functionalities
+           available in a tree are also available in a domain tree.
+        </p>
+        <img src="img/node_context.png">
+        <br />
+        <br />
+        <h4>Domain view</h4>
+        <a name="domainView"></a>
+        <p>
+            The domain view is the most central view in DoMosaics. As with the sequence and tree views, domains views
+            have a distinct menu along the top of the main view panel. This menu provides the following functionalities:
+        </p>
+        <dl>
+            <dt>File</dt>
+            <dd>
+                <dl class="dl-horizontal">
+                    <dt>Export</dt>
+                    <dd>Save dataset in current view as xdom or as graphic</dd>
+                </dl>
+            </dd>
+            <dt>View</dt>
+            <dd>
+                <dl class="dl-horizontal">
+                    <dt>Zoom mode</dt>
+                    <dd>When enabled, the current view is treated as a static graphic and allows zoom-in and zoom-out operations.
+                        While in this view, no context-operations can be used.
+                    </dd>
+                    <dt>Accession IDs</dt>
+                    <dd>When enabled, domain accession IDs are displayed instead of domain names (e.g. PF0001 instead of 7tm_1).
+                        If the used domain definition only has one type of identifier there will be no difference between names and accession IDs.
+                        For domain names, enable Domain Names.
+                    </dd>
+                    <dt>Proportional view</dt>
+                    <dd>
+                        When enabled, arrangements are displayed with a scale corresponding to their sequence length.
+                        Domains sizes are proportional to their length in the underlying data set. In contrast,
+                        when the <b>un-proportional view</b> option is selected every domain has the same size, and domains
+                        are displayed with different shapes and colors (both of which can be configured for each distinct family).
+                    </dd>
+                    <dt>MSA view</dt>
+                    <dd>
+                        When enabled, proteins are displayed as sequences, and the domains are signified using color-coded
+                        boxes. This can be useful for selecting sequence regions of interest (by dragging the mouse over regions
+                        of interest and clicking the right mouse button, sequence regions can be saved as new sequence views or fasta
+                        files).
+                    </dd>
+                    <dt>Fit to screen</dt>
+                    <dd>
+                        When enabled, the displayed arrangements are re-sized to fit to the visible screen.
+                    </dd>
+                    <dt>Evalue colorization</dt>
+                    <dd>
+                        When enabled, the alpha-value of the domain colors is changes in correspondance to
+                        the domains evalue. Domains with very high values become transparent, where as
+                        domains with very low evalues have strong colors.
+                    </dd>
+                    <dt>Show shapes</dt>
+                    <dd>
+                        When enabled, domains are displayed as shapes. The domain name is removed and domain families
+                        are distinguished through domain shape and color. <b>Note</b> that while the domain colors and
+                        shapes will be specific for families <em>within</em> projects, they may differ
+                        <em>between</em> projects. Both shapes and colors can be adjusted.
+                    </dd>
+                    <dt>Show legend</dt>
+                    <dd>
+                        Displays the legend of domains in the current domain view
+                    </dd>
+                    <dt>Search protein</dt>
+                    <dd>
+                        Search for a protein within the current view.
+                    </dd>
+                </dl>
+            </dd>
+            <dt>Edit</dt>
+            <dd>
+                <dl class="dl-horizontal">
+                    <dt>Domain composition</dt>
+                    <dd>
+                        Opens a dialog to manually modify domain annotation (start/stop positions). Can also
+                        be used to add domain annotation. Requires that a domain arrangement be selected.
+                    </dd>
+                    <dt>Associate with sequence</dt>
+                    <dd>
+                        Opens a dialog for mass assignment of sequences to arrangements in the domain view. Sequences
+                        can be provided in the form of an existing sequence view, or via an external (fasta) file.
+                        Arrangements are associated with fasta entries over the name of the protein.
+                    </dd>
+                    <dt>Delete Selected Arrangement</dt>
+                    <dd>
+                        Removes the currently selected arrangement from the view.
+                    </dd>
+                    <dt>Collapse Same Arrangements</dt>
+                    <dd>
+                        Reduces the number of displayed arrangements down to the unique arrangement set
+                        when selected.
+                    </dd>
+                    <dt>Collapse By Similarity</dt>
+                    <dd>
+                        Requires a selected arrangement. Opens a dialog where a distance filter can be
+                        chosen (<a href="http://en.wikipedia.org/wiki/Jaccard_index">Jaccard distance</a>
+                        or <a href="http://en.wikipedia.org/wiki/Levenshtein_distance">Levenshtein edit distance</a>).
+                        The displayed arrangements are filtered to show only those arrangements that meet the
+                        filter criteria (e.g. only those arrangements that can be reached in
+                        three single-step edit operations).
+                    </dd>
+                </dl>
+            </dd>
+            <dt>Select</dt>
+            <dd>
+                <dl class="dl-horizontal">
+                    <dt>Select All Domain Arrangements</dt>
+                    <dd>Selects all arrangements in the current view</dd>
+                    <dt>Select Domain Arrangement</dt>
+                    <dd>When active, clicking on an arrangement selects the arrangement. Selected arrangements have a red border.</dd>
+                    <dt>Select Sequences</dt>
+                    <dd>
+                        When selected, the mouse can be dragged over arrangements to select underlying sequence regions.
+                        Note that this only works, if the arrangements in the current view are associated with sequences.
+                    </dd>
+                    <dt>Reset shift positions</dt>
+                    <dd>
+                        When in the unproportional domain view, domains can be manually alligned with each other.
+                        This operation can be used to reset the position of aligned domains (effects the entire
+                        view).
+                    </dd>
+                    <dt>Export selection to new view</dt>
+                    <dd>
+                        Exports the current selection of arrangements to a new view. Opens a dialog in which the name
+                        of the new view and a new project must be specified.
+                    </dd>
+                    <dt>Export selection to existing view</dt>
+                    <dd>
+                        Exports the current selection of arrangements to an <em>existing view</em>.
+                    </dd>
+                </dl>
+            </dd>
+        </dl>
+        <p>
+            Beyond the main menu, a number of operations are triggered in context, that is, by right-clicking on an
+            arrangement (that is <em>between</em> domains of an arrangement) or <em>within</em> domains of an arrangement.
+            The former provides the context menu of the arrangement, while the latter provides the context menu of the selected
+            domain.
+            <section id='screenshots'>
+                <ul class="thumbnails">
+                    <li class="span6">
+                        <div class='thumbnail'>
+                            <img src="img/arrangement_context.png" alt=""></a>
+                            <div class='caption'>
+                                <h5>Arrangement context menu </h5>
+                                <p>
+                                    Menu can be reached by right-click on a <em>non-</em>domain position in an arrangement.
+                                    As their are no non-domain positions displayed when arrangement are represented
+                                    as same-sized boxes (unproportional), this menu is only available in the
+                                    proportional arrangement visualization.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="span6">
+                        <div class='thumbnail'>
+                            <img src="img/domain_context.png" alt=""></a>
+                            <div class='caption'>
+                                <h5>Domain context menu</h5>
+                                <p>Menu can be reached from any domain-displaying view by through right-click
+                                on a domain.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+        </p>
+        <br />
+        <br />
+        <h4>Domain-tree view</h4>
+        <a name="domainTreeView"></a>
+        <p>A domain tree view is a combination between a tree view and a domain view. The view panel menu and context menus
+        are mixed, and allow access to the view specific-functionality from both the domain and the tree view.</p>
+        <br />
+        <br />
+    </div>
+    <p class="pull-right"><a href="#top">back to top</a></p>
+    <br><br>
+
     <!-- Section: Tools -->
     <div class="section" style="margin-top: 40px; text-align: justify;">
     <a name="tools"></a>
-        <h3>7. Tools</h3>
-        <hr>
-        <a name="distances"></a>
-        <h4>Distance Matrix</h4>
-        <div class='row'>
-            <div class='span8'>
-                DoMosaics allows users to build trees based on domain arrangements, or to filter datasets to only
-                include similar
-                arrangements. These operations are achieved by using a measurement that describe the distance between
-                arrangements.
-                Currently, two types of distances are implemented: the (1) domain distance and the (2) Jaccard distance.
-                To open the distance matrix go to Tools -> Distance matrix.
-            </div>
-            <div class="span4">
-                <div class="alert">
-                    <b>Objective</b>: Open distance matrix<br>
-                    Main Menu, Tools, Distance Matrix
-                </div>
+    <h3>8. Tools</h3>
+    <hr>
+    <a name="distances"></a>
+    <h4>Distance Matrix</h4>
+    <div class='row'>
+        <div class='span8'>
+            DoMosaics allows users to build trees based on domain arrangements, or to filter datasets to only
+            include similar
+            arrangements. These operations are achieved by using a measurement that describe the distance between
+            arrangements.
+            Currently, two types of distances are implemented: the (1) domain distance and the (2) Jaccard distance.
+            To open the distance matrix go to Tools -> Distance matrix.
+        </div>
+        <div class="span4">
+            <div class="alert">
+                <b>Objective</b>: Open distance matrix<br>
+                Main Menu, Tools, Distance Matrix
             </div>
         </div>
-        <br>
+    </div>
+    <br>
 
-        <b>Jaccard Distance</b><br>
+    <b>Jaccard Distance</b><br>
 
-        <p>
-            The <a href="http://en.wikipedia.org/wiki/Jaccard_index">Jaccard similarity coefficient</a> is used for
-            comparing sets, and is computed by dividing the intersection
-            of two given sets by their union. Ergo, a Jaccard index of 1 signifies that two given sets are identical.
-            The Jaccard distance can be easily computed by subtracting the Jaccard similarity coefficient from 1;
-            it moves between 0 and 1. In DoMosaics, the compared sets correspond to domain sets.
-        </p>
-        <br>
+    <p>
+        The <a href="http://en.wikipedia.org/wiki/Jaccard_index">Jaccard similarity coefficient</a> is used for
+        comparing sets, and is computed by dividing the intersection
+        of two given sets by their union. Ergo, a Jaccard index of 1 signifies that two given sets are identical.
+        The Jaccard distance can be easily computed by subtracting the Jaccard similarity coefficient from 1;
+        it moves between 0 and 1. In DoMosaics, the compared sets correspond to domain sets.
+    </p>
+    <br>
 
-        <b>Domain Distance</b><br>
+    <b>Domain Distance</b><br>
 
-        <p>
+    <p>
 
-            The Domain distance is an edit distance, in which the differences between two strings can be measured as the
-            number of operations necessary to transform from one string into the other. Arrangements are strings of a
-            proteins constituent domains. As such, two arrangements can be compared using their edit distance,
-            using insertions and deletions as operations. A large domain distance indicates that a large number of
-            operations are necessary to go from one arrangements to another, and may be indicative of a
-            large evolutionary distance between the two considered proteins.
-        </p>
+        The Domain distance is an edit distance, in which the differences between two strings can be measured as the
+        number of operations necessary to transform from one string into the other. Arrangements are strings of a
+        proteins constituent domains. As such, two arrangements can be compared using their edit distance,
+        using insertions and deletions as operations. A large domain distance indicates that a large number of
+        operations are necessary to go from one arrangements to another, and may be indicative of a
+        large evolutionary distance between the two considered proteins.
+    </p>
 
-        <p>
-            The distance matrix provides an overview of the distances between arrangements, whereas users can determine
-            which distance is to be used under 'Options'. The IDs/Names of the proteins as they appear in the
-            corresponding
-            view are found along the axis; choosing a cell in the matrix will highlight the two proteins which are being
-            compared.
-            The distances can be exported to a .csv file for further processing.
-        </p>
+    <p>
+        The distance matrix provides an overview of the distances between arrangements, whereas users can determine
+        which distance is to be used under 'Options'. The IDs/Names of the proteins as they appear in the
+        corresponding
+        view are found along the axis; choosing a cell in the matrix will highlight the two proteins which are being
+        compared.
+        The distances can be exported to a .csv file for further processing.
+    </p>
 
-        <p style="text-align: center;"><img src='img/distance-matrix.png'></p>
+    <p style="text-align: center;"><img src='img/distance-matrix.png'></p>
 
-        <p>
-            Datasets can be filtered by these distance matrices. To do so, select an arrangement
-            in a domain or domain-tree view, go to 'Edit' in the submenu and choose 'Collapse by similarity'. For
-            example, you can
-            filter the dataset by changing the max. allowed number of edit operations using a sliding bar
-        </p>
+    <p>
+        Datasets can be filtered by these distance matrices. To do so, select an arrangement
+        in a domain or domain-tree view, go to 'Edit' in the submenu and choose 'Collapse by similarity'. For
+        example, you can
+        filter the dataset by changing the max. allowed number of edit operations using a sliding bar
+    </p>
 
-        <p style="text-align: center;"><img src='img/d-distance-applied.png'></p>
-        <br>
-        <br>
+    <p style="text-align: center;"><img src='img/d-distance-applied.png'></p>
+    <br>
+    <br>
 
-        <a name='domainGraph'></a>
-        <h4>Domain Graph</h4>
-        <hr>
+    <a name='domainGraph'></a>
+    <h4>Domain Graph</h4>
+    <hr>
 
-        <p class="label label-warning">Heads up!</p> The domain graph functionality of DoMosaics is still experimental.
+    <p class="label label-warning">Heads up!</p> The domain graph functionality of DoMosaics is still experimental.
 
-        <p>
-            In a domain graph, domains are displayed as nodes and edges connect domains which co-occur within at least
-            one
-            protein. Domain graphs can be undirected, where the edges have no direction and hence are indicative only of
-            co-occurrences, or directed, where edges have directions indicating the order in which they appear in
-            proteins.
-            In DoMosaics, domain graphs are directed (from N to C-terminus).
-        </p>
+    <p>
+        In a domain graph, domains are displayed as nodes and edges connect domains which co-occur within at least
+        one
+        protein. Domain graphs can be undirected, where the edges have no direction and hence are indicative only of
+        co-occurrences, or directed, where edges have directions indicating the order in which they appear in
+        proteins.
+        In DoMosaics, domain graphs are directed (from N to C-terminus).
+    </p>
 
-        <p style="text-align: center;"><img src="img/domain-graph.png"></p>
+    <p style="text-align: center;"><img src="img/domain-graph.png"></p>
 
-        <div class='row'>
-            <div class='span8'>
-                <b>Create a domain graph</b><br>
-                To show the domain-graph of the current domain-view dataset,
-                choose tools -> domain-graph from the menu of the domain-view or
-                the domain-tree-view. The numbers on the edges indicate the frequency
-                with which the indicated domain-adjacency occurs in the dataset.
-                For example, in the image above,
-                Lectin_C_mod occurs a total of 9 times N-terminal to the
-                domain PF00431.
-            </div>
-            <div class="span4">
-                <div class="alert">
-                    <b>Objective</b>: Open domain graph<br>
-                    Domain view sub menu, Tools, Domain Graph
-                </div>
+    <div class='row'>
+        <div class='span8'>
+            <b>Create a domain graph</b><br>
+            To show the domain-graph of the current domain-view dataset,
+            choose tools -> domain-graph from the menu of the domain-view or
+            the domain-tree-view. The numbers on the edges indicate the frequency
+            with which the indicated domain-adjacency occurs in the dataset.
+            For example, in the image above,
+            Lectin_C_mod occurs a total of 9 times N-terminal to the
+            domain PF00431.
+        </div>
+        <div class="span4">
+            <div class="alert">
+                <b>Objective</b>: Open domain graph<br>
+                Domain view sub menu, Tools, Domain Graph
             </div>
         </div>
-        <br>
+    </div>
+    <br>
 
-        <p>
-            The threshold slider at the bottom can be used to visually highlight parts of the graph which have <em>at
-            least x</em>
-            neighbours. This is particularly useful for very large datasets.
-        </p>
-        <br>
-        <br>
-        <a name="domainDotplot"></a>
-        <h4>Domain Dotplot</h4>
+    <p>
+        The threshold slider at the bottom can be used to visually highlight parts of the graph which have <em>at
+        least x</em>
+        neighbours. This is particularly useful for very large datasets.
+    </p>
+    <br>
+    <br>
+    <a name="domainDotplot"></a>
+    <h4>Domain Dotplot</h4>
 
-        <hr>
+    <hr>
 
-        <p>
-            A <a href="http://en.wikipedia.org/wiki/Dot_plot_%28bioinformatics%29"> Dotplot </a> is a graphical method
-            for
-            conducting a pairwise-sequence comparison. By comparing all positions of
-            the first sequence to all positions of the second, matches (regions of similarity) of a given length
-            can be identified (word-length). Using the two sequences as axes to a rectangular plot, a dot a positioned
-            between words from both sequences which are similar.
-        </p>
+    <p>
+        A <a href="http://en.wikipedia.org/wiki/Dot_plot_%28bioinformatics%29"> Dotplot </a> is a graphical method
+        for
+        conducting a pairwise-sequence comparison. By comparing all positions of
+        the first sequence to all positions of the second, matches (regions of similarity) of a given length
+        can be identified (word-length). Using the two sequences as axes to a rectangular plot, a dot a positioned
+        between words from both sequences which are similar.
+    </p>
 
-        <p>
-            Domain-dotplots are an extension of a regular dotplot. Given two selected domain arrangements <b>with an
-            underlying
-            sequence attached</b> (recognizable by a rectangular [s] which appears on mouse over on domains in the
-            domain-view),
-            a standard dotplot of amino-acids is created (with customisable substitution matrix, word length and score).
-        </p>
+    <p>
+        Domain-dotplots are an extension of a regular dotplot. Given two selected domain arrangements <b>with an
+        underlying
+        sequence attached</b> (recognizable by a rectangular [s] which appears on mouse over on domains in the
+        domain-view),
+        a standard dotplot of amino-acids is created (with customisable substitution matrix, word length and score).
+    </p>
 
-        <p style="text-align: center;"><img src="img/dotplot.png"></p>
+    <p style="text-align: center;"><img src="img/dotplot.png"></p>
 
-        <p>
-            Additionally each domain of one protein is facing its corresponding (same domain family) in the other
-            protein, and is represented by a square with the indicated average conservation. Hence, this adds to the
-            global sequence conservation the information about which domain are the most conserved and, for example in
-            case of multiple repeats, which domains are likely paralogs.
-        </p>
+    <p>
+        Additionally each domain of one protein is facing its corresponding (same domain family) in the other
+        protein, and is represented by a square with the indicated average conservation. Hence, this adds to the
+        global sequence conservation the information about which domain are the most conserved and, for example in
+        case of multiple repeats, which domains are likely paralogs.
+    </p>
 
-        <div class='row'>
-            <div class="span8">
-                <b>Create a domain dotplot</b><br>
-                To create a domain dotplot, select two sequences of interest in the domain-view keeping in mind that
-                they must be associated with an amino acid sequence. Once the two arrangements are selected
-                (recognizable by a red border around the arrangements in question), go to 'Tools->Domain Dotplot'. Image
-                export, matrix selection, and other options can be found in the tools menu.
-            </div>
-            <div class="span4">
-                <div class="alert">
-                    <b>Objective</b>: Create dotplot<br>
-                    Domain view sub menu, Tools, Domain Dotplot
-                </div>
+    <div class='row'>
+        <div class="span8">
+            <b>Create a domain dotplot</b><br>
+            To create a domain dotplot, select two sequences of interest in the domain-view keeping in mind that
+            they must be associated with an amino acid sequence. Once the two arrangements are selected
+            (recognizable by a red border around the arrangements in question), go to 'Tools->Domain Dotplot'. Image
+            export, matrix selection, and other options can be found in the tools menu.
+        </div>
+        <div class="span4">
+            <div class="alert">
+                <b>Objective</b>: Create dotplot<br>
+                Domain view sub menu, Tools, Domain Dotplot
             </div>
         </div>
-        <br>
-        <br>
+    </div>
+    <br>
+    <br>
 
-        <a name="evalueRes"></a>
-        <h4>E-value Resolver</h4>
-        <hr>
+    <a name="evalueRes"></a>
+    <h4>E-value Resolver</h4>
+    <hr>
 
-        <p>
-            This tool has been designed to post process domain annotation with loose (not stringent) E-value thresholds.
-            It includes 3 filters of domain annotations: an e-value filter, an overlap resolver, and the Co-Occurring
-            Domain Detection (CODD) method.
-        </p>
+    <p>
+        This tool has been designed to post process domain annotation with loose (not stringent) E-value thresholds.
+        It includes 3 filters of domain annotations: an e-value filter, an overlap resolver, and the Co-Occurring
+        Domain Detection (CODD) method.
+    </p>
 
-        <p style="text-align: center;"><img src="img/evalue_res.png"></p>
+    <p style="text-align: center;"><img src="img/evalue_res.png"></p>
 
-        <p>
-            The E-value filter allows a dynamic visualization of domain arrangements of proteins. Starting with a domain
-            annotation conducted with very high e-value thresholds, the user can play with the threshold settings
-            and see impact on domain arrangements (as opposed iteratively re-annotating with varying thresholds).
-        </p>
+    <p>
+        The E-value filter allows a dynamic visualization of domain arrangements of proteins. Starting with a domain
+        annotation conducted with very high e-value thresholds, the user can play with the threshold settings
+        and see impact on domain arrangements (as opposed iteratively re-annotating with varying thresholds).
+    </p>
 
-        <p>
-            The overlap resolver allows to clean the domain annotation after a "complete domain annotation process" which
-            might contain overlapping domains at the same position. Only one domain occurrence is supposed to be
-            present/active at one position of a protein. The usual overlap resolvers is based on E-value, only retaining
-            domain occurrences with best e-values and removing overlapping domains incrementally. Additionally we propose a
-            resolver that maximize the coverage of the protein by domains. These options are provided to be able to retrieve
-            "standard arrangements" from overlapping ones. However, in some cases a user might be interested in keeping
-            overlaps as they must not result from erroneous annotation by misleading amino-acid sequences similarities,
-            but instead might also involve evolutionary relationships of domains.
-            In this later case, one must question which function is actually present, especially when scores and e-values
-            are high and significant.
-        </p>
+    <p>
+        The overlap resolver allows to clean the domain annotation after a "complete domain annotation process" which
+        might contain overlapping domains at the same position. Only one domain occurrence is supposed to be
+        present/active at one position of a protein. The usual overlap resolvers is based on E-value, only retaining
+        domain occurrences with best e-values and removing overlapping domains incrementally. Additionally we propose a
+        resolver that maximize the coverage of the protein by domains. These options are provided to be able to retrieve
+        "standard arrangements" from overlapping ones. However, in some cases a user might be interested in keeping
+        overlaps as they must not result from erroneous annotation by misleading amino-acid sequences similarities,
+        but instead might also involve evolutionary relationships of domains.
+        In this later case, one must question which function is actually present, especially when scores and e-values
+        are high and significant.
+    </p>
 
-        <p>
-            The Co-Occurring Domain Detection (CODD) method (Terrapon et al., 2009) has been designed for the
-            context-dependent detection of divergent domains in remote species or detecting domains in species which exhibit
-            a high amino-acid composition bias. CODD works as a filter on putative domains (domains which do not satisfying defined thresholds)
-            by removing the most doubtful domains and retaining the most reliable ones. The filter takes advantage if the known property of
-            domain co-occurrence: most domain families are observed in proteins with only few other "favorite" (function
-            collaboration/compatibility) domain families. Hence, using a list of correlated domain pairs, CODD can certify
-            the presence of putative domains based on the asserted presence of others. This method is able to increase domain
-            annotation in case of divergence/bias while rejecting the majority of false putative domains generated
-            resulting from the loosening of E-value thresholds.
-        </p>
+    <p>
+        The Co-Occurring Domain Detection (CODD) method (Terrapon et al., 2009) has been designed for the
+        context-dependent detection of divergent domains in remote species or detecting domains in species which exhibit
+        a high amino-acid composition bias. CODD works as a filter on putative domains (domains which do not satisfying defined thresholds)
+        by removing the most doubtful domains and retaining the most reliable ones. The filter takes advantage if the known property of
+        domain co-occurrence: most domain families are observed in proteins with only few other "favorite" (function
+        collaboration/compatibility) domain families. Hence, using a list of correlated domain pairs, CODD can certify
+        the presence of putative domains based on the asserted presence of others. This method is able to increase domain
+        annotation in case of divergence/bias while rejecting the majority of false putative domains generated
+        resulting from the loosening of E-value thresholds.
+    </p>
 
     </div>
     <p class="pull-right"><a href="#top">back to top</a></p>
