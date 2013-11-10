@@ -5,6 +5,7 @@ Domosaics::Application.routes.draw do
   match '/download/domosaics/:dtoken/:os' => 'users#download_file', :as => :download_file
   match '/users/resend_token' => 'users#resend_token'
   match '/users/thanks' => 'users#thanks'
+  match '/users/remove' => 'users#delete'
 
 
   resources :users

@@ -57,6 +57,18 @@ class UsersController < ApplicationController
   def thanks
   end
 
+  def delete
+		users = User.find_all_by_email(params[:email])
+		@email = params[:email]
+		if not users.empty?
+			logger.info "USERS: "+users.to_s
+			users.each(&:delete)
+			@removed = true
+		else
+			@removed = false
+		end
+  end
+
   private
 
   def get_client_os
