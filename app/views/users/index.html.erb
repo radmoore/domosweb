@@ -21,8 +21,8 @@
 </div>
 	<div class="alert alert-error">
   	<button type="button" class="close" data-dismiss="alert">&times;</button>
-	  <strong>Note</strong>: We have made updates to the JNLP file (for JAVA webstart). Please clear your application cache 
-		to get the newest version (read <a href="#faq">below</a> how).
+	  <strong>Note</strong>: Updates to the JAVA security settings require users to configure a security exception in order to run DoMosaics. We will soon provide a certificate for 
+DoMosaics, making this unecessary. In the meantime, read <a href="http://www.java.com/de/download/help/java_blocked.xml">here</a> on how to configure an exception (under "WORKAROUND").
 	</div>
   <section id='about'>
   <a name="about"></a>
@@ -272,13 +272,13 @@ include a number of major changes. If need be, you can get the last build <% lin
               <tr>
                 <td>JAR</td>
                 <td>Binary</td>
-                <td>rv 0.92</td>
+                <td>rv 0.95</td>
                 <td><%= link_to "http://domosaics.net/download/domosaics.jar", "http://domosaics.net/download/domosaics.jar" %></td>
               </tr>
               <tr>
                 <td>TAR</td>
                 <td>source files</td>
-                <td>rv 0.92</td>
+                <td>rv 0.95</td>
                 <td><%= link_to "http://domosaics.net/download/domosaics-src.tgz", "http://domosaics.net/download/domosaics-src.tgz" %></td>
               </tr>
               </tbody>
@@ -534,6 +534,16 @@ does not influence the functionality of DoMosaics</li>
   <section id='referencing'>
   <h3>References and Referencing DoMosaics</h3>
   <hr />
+The application note describing DoMosaics appeared in Bioinformatics:
+<br />
+<br />
+AD Moore, A Held, N Terrapon, J Weiner and Erich Bornberg-Bauer<br />
+<a href="http://bioinformatics.oxfordjournals.org/content/30/2/282">DoMosaics: software for domain arrangement visualization and domain-centric analysis of proteins</a><br />
+Bioinformatics (2014) 30 (2): 282-283<br />
+<br />
+Or, alternatively, if your journal supports webcitations you can cite:
+<p style='text-align:center;'><%= link_to "http://www.domosaics.net","http://www.domsaics.net" %></p>
+<br />
   <p style='text-align:justify;'>
   Here are some of the studies in which we (or others) have successfully used DoMosaics
 <ul>
@@ -542,11 +552,9 @@ does not influence the functionality of DoMosaics</li>
 <li>Kersting A et al, Genome Biol Evol (2012)</li> 
 <li>Moore AD and Bornberg-Bauer E, MBE (2012)</li> 
 <li>Moore AD et al, BBA Proteins and Proteomics (2013)</li> 
+<li>Terrapon et al, Bioinformatics (2014)</li> 
 </ul>
-
-  A manuscript describing DoMosaics has been submitted. We will drop a note on to this site when the paper is out. In any case,
-  if your journal supports webcitations, please cite:
-<p style='text-align:center;'><%= link_to "http://www.domosaics.net","http://www.domsaics.net" %></p>
+<br />
   <p style='float:right;'><a class='btn btn-small btn-info' href='#top'>top <i class="icon-arrow-up"></i></a></p>
   <br />
   <br />
